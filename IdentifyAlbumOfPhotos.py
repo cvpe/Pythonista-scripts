@@ -13,12 +13,8 @@ def main():
 	console.clear()
 	#p = photos.pick_image(show_albums=True, include_metadata=True, original=True, raw_data=False, multi=True)
 	# Build dictionary filename: index
-	fn_index = {}
-	for ip in range(photos.get_count()):
-		m = photos.get_metadata(ip)
-		#print m
-		fn = m.get('filename')
-		fn_index[fn] = (ip,'')	
+	fn_index = {photos.get_metadata(i).get('filename'): (i, '')
+                    for i in xrange(photos.get_count())}
 
 	# - type = 1: album
 	# - subtype = 2: regular album
