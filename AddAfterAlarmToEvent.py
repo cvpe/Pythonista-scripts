@@ -124,18 +124,9 @@ class MyView(ui.View):
 			dur = dur/60 # minutes
 			days,remain = divmod(dur, 24*60)
 			hours,mins = divmod(remain,60)
-			if days == 0:
-				durf = '    '
-			else:
-				durf = '{:02d}j '.format(int(days))
-			if hours == 0:
-				durf = durf + '    '
-			else:
-				durf = durf + '{:02d}h '.format(int(hours))
-			if mins == 0:
-				durf = durf + '    '
-			else:
-				durf = durf + '{:02d}m '.format(int(mins))
+			durf = '{:02d}j '.format(int(days)) if days else '    '
+			durf += '{:02d}h '.format(int(hours)) if hours else '    '
+			durf += '{:02d}m '.format(int(mins)) if mins else '    '
 			txt = str(dateFormat.stringFromDate_(strdt) ) + ' ' + durf + ': ' + str(event.title())
 			evttabs.append(txt)
 		
@@ -165,7 +156,7 @@ class MyView(ui.View):
 			for alarm in alarms:
 				al = int(alarm.relativeOffset()/60)
 				fields.append({'title':'n° '+str(i),'key':'alarm'+str(i),'type':'number','value':str(al)})
-				i = i + 1
+				i += 1
 		else:
 			i = 1
 			
@@ -195,7 +186,7 @@ class MyView(ui.View):
 						alarm = ObjCClass('EKAlarm').alarmWithRelativeOffset_(al)
 						event.addAlarm_(alarm)
 						
-				i = i + 1
+				i += 1
 			
 			if modif:
 				if event.hasRecurrenceRules():
