@@ -8,3 +8,8 @@ AddAfterAlarmToEvent.py
  - add or update these thresholds
  - save th modified event
 
+IdentifyAlbumOfPhotos.py
+ - scan all photos with photos module
+ - store their file name in a dictionary "name->index"
+ - scan all photos with Photos Objc Framework
+ - get their album name and update dictionary as "name->index,album"
