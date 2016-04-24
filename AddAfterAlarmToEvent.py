@@ -160,7 +160,7 @@ class MyView(ui.View):
 		event = self.events_array[row]
 		alarms = event.alarms()
 		fields = []
-		if alarms <> None:
+		if alarms != None:
 			i = 1
 			for alarm in alarms:
 				al = int(alarm.relativeOffset()/60)
@@ -175,7 +175,7 @@ class MyView(ui.View):
 		fields.append({'title':'n°'+str(n),'key':'alarm'+str(n),'type':'number','value':str(al)})
 		als = dialogs.form_dialog(title='Alarmes (en minutes)',done_button_title='ok',fields=fields, sections=None)
 		modif = False
-		if als <> None:
+		if als != None:
 			# Done pressed
 			i = 1
 			while i <= n:
