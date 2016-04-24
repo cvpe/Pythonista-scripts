@@ -126,7 +126,7 @@ class MyView(ui.View):
 			hours,mins = divmod(remain,60)
 			durf = '{:02d}j '.format(int(days)) if days else '    '
 			durf += '{:02d}h '.format(int(hours)) if hours else '    '
-			durf += '{:02d}m '.format(int(mins)) if min else '    '
+			durf += '{:02d}m '.format(int(mins)) if mins else '    '
 			txt = str(dateFormat.stringFromDate_(strdt) ) + ' ' + durf + ': ' + str(event.title())
 			evttabs.append(txt)
 		
