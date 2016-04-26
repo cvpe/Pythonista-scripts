@@ -11,7 +11,7 @@ import webbrowser
 
 class MyView(ui.View):
 	
-	def __init__(self,w,h):
+	def __init__(self, w, h):
 		global store
 		self.width = w
 		self.height = h
@@ -35,12 +35,8 @@ class MyView(ui.View):
 		end_button = ui.Button(name='end_button')
 		#end_button.border_color = 'black'
 		#end_button.border_width = 1
-		end_button.width = 32
-		end_button.height = 32
-		end_button.x = 10
-		end_button.y = 20
+		end_button.frame = (10, 20, 32, 32)
 		end_button.background_image = ui.Image.named('iob:close_circled_256')
-		end_button.title = ''
 		end_button.action = self.end_action
 		self.add_subview(end_button)
 
@@ -48,21 +44,17 @@ class MyView(ui.View):
 		dat_button = ui.Button(name='dat_button')
 		#dat_button.border_color = 'black'
 		#dat_button.border_width = 1
-		dat_button.width = 32
-		dat_button.height = 32
-		dat_button.x = self.width-dat_button.width-10
-		dat_button.y = end_button.y
+		dat_button.frame = (self.width-dat_button.width-10, end_button.y, 32, 32)
 		dat_button.background_image = ui.Image.named('iob:calendar_256')
-		dat_button.title = ''
 		dat_button.action = self.dat_action
 		self.add_subview(dat_button)
 		
 		# Label: titre
 		titlbl = ui.Label(name='titlbl')
-		titlbl.width = w - end_button.width - dat_button.width - 3*10
+		titlbl.width = 
 		titlbl.height = 32
-		titlbl.x = 10
-		titlbl.y = end_button.y
+		titlbl.frame = (10, end_button.y,
+				w - end_button.width - dat_button.width - 3*10, 32)
 		titlbl.text = 'Add Alarm After Begin to Calendar Event'
 		titlbl.alignment = ui.ALIGN_CENTER
 		titlbl.font= ('Courier-Bold',20)
@@ -72,17 +64,15 @@ class MyView(ui.View):
 		# TableView: Events
 		evttab = ui.TableView()
 		evttab.name = 'evttab'
-		evttab.x = 10
-		evttab.y = titlbl.y + titlbl.height + 10
-		evttab.width = self.width - 20
-		evttab.height = self.height - evttab.y - 10
+		evttab.frame = (10, titlbl.y + titlbl.height + 10
+				self.width - 20, self.height - evttab.y - 10)
 		evttab.row_height = 20
 		evttab.border_color = 'black'
 		evttab.border_width = 1
 		evttab.delegate = self
 		self.add_subview(evttab)
 		
-	def dat_action(self,sender):
+	def dat_action(self, sender):
 		global store
 		
 		# Ask begin and end date	
@@ -121,17 +111,17 @@ class MyView(ui.View):
 			strdt = event.startDate()
 			enddt = event.endDate()
 			dur = enddt.timeIntervalSinceDate_(strdt)
-			dur = dur/60 # minutes
+			dur = dur / 60 # minutes
 			days,remain = divmod(dur, 24*60)
-			hours,mins = divmod(remain,60)
+			hours,mins = divmod(remain, 60)
 			durf = '{:02d}j '.format(int(days)) if days else '    '
 			durf += '{:02d}h '.format(int(hours)) if hours else '    '
 			durf += '{:02d}m '.format(int(mins)) if mins else '    '
-			txt = str(dateFormat.stringFromDate_(strdt) ) + ' ' + durf + ': ' + str(event.title())
+			txt = '{} {}: {}'.format(dateFormat.stringFromDate_(strdt), durf, event.title())
 			evttabs.append(txt)
 		
 		evtlst = ui.ListDataSource(items=evttabs)
-		evtlst.font= ('Courier',15)
+		evtlst.font = ('Courier', 15)
 		evtlst.text_color = 'black'
 		self['evttab'].data_source = evtlst
 		self['evttab'].reload()
@@ -151,10 +141,10 @@ class MyView(ui.View):
 		event = self.events_array[row]
 		alarms = event.alarms()
 		fields = []
-		if alarms != None:
+		if alarms:
 			i = 1
 			for alarm in alarms:
-				al = int(alarm.relativeOffset()/60)
+				al = int(alarm.relativeOffset() / 60)
 				fields.append({'title':'n° '+str(i),'key':'alarm'+str(i),'type':'number','value':str(al)})
 				i += 1
 		else:
@@ -163,47 +153,45 @@ class MyView(ui.View):
 		# add a blank alarm for a new one
 		n = i
 		al = 0
-		fields.append({'title':'n°'+str(n),'key':'alarm'+str(n),'type':'number','value':str(al)})
-		als = dialogs.form_dialog(title='Alarmes (en minutes)',done_button_title='ok',fields=fields, sections=None)
+		fields.append({'title': 'n°' + str(n),
+				'key': 'alarm' + str(n),
+				'type': 'number',
+				'value': str(al)})
+		als = dialogs.form_dialog(title='Alarmes (en minutes)', done_button_title='ok',
+						fields=fields, sections=None)
 		modif = False
-		if als != None:
+		if als:
 			# Done pressed
 			i = 1
 			while i <= n:
-				al = int(als['alarm'+str(i)])*60
-				if i < n:
-					alold = int(alarm.relativeOffset()/60)
-				else:
-					alold = 0
-				if al <> alold:
+				al = int(als['alarm' + str(i)]) * 60
+				alold = int(alarm.relativeOffset() / 60) if i < n else 0
+				if al != alold:
 					modif = True
 					if i < n:
 						# remove alarm
 						event.removeAlarm_(alarms[i-1])
 					
-					if al <> 0:	
+					if al:	
 						# add non zero alarm
 						alarm = ObjCClass('EKAlarm').alarmWithRelativeOffset_(al)
 						event.addAlarm_(alarm)
-						
 				i += 1
 			
 			if modif:
+				span = 0  # assume only this instance
 				if event.hasRecurrenceRules():
-					but = console.alert('Event is recurrent','modify this instance only?','Yes','No',hide_cancel_button=True)
-					if but == 1:
-						span = 0 # only this instance
-					else:
-						span = 1 # all instances
-				else:
-					span = 0 # only this instance
+					but = console.alert('Event is recurrent', 'modify this instance only?',
+								'Yes', 'No', hide_cancel_button=True)
+					if but != 1:
+						span = 1  # all instances
 				# store modified event in calendar
-				store.saveEvent_span_error_(event,span,None) 
+				store.saveEvent_span_error_(event, span, None) 
 	
 				# store modified in memory, reason why we use a normal array instead of a NSarray
 				self.events_array[row] = event
 					
-	def end_action(self,sender):
+	def end_action(self, sender):
 		self.close()
 		# Back to home screen
 		webbrowser.open('launcher://crash')
@@ -217,5 +205,5 @@ console.clear()
 # Hide script
 w, h = ui.get_screen_size()
 back = MyView(w,h)
-back.background_color='white'
-back.present('full_screen',hide_title_bar=True)
+back.background_color = 'white'
+back.present('full_screen', hide_title_bar=True)
