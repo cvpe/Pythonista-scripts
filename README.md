@@ -15,7 +15,6 @@ IdentifyAlbumOfPhotos.py
  - get their album name and update dictionary as "name->index,album"
 
 contacts on map.py
-Functionalities
  - the script uses a function, geocodeAddressString, for converting an
   	address string into a localization (latitude,longitude).
 		If you want to use it in different scripts, you could store it in
@@ -25,7 +24,7 @@ Functionalities
  - you can zoom and move the map by pinching and swiping
  - a button (pin) allows to switch between a pin or a photo for contact
 		if a contact does not have a photo, a pin is always shown
-	- tapping a pin or a photo shows a view with the name(s) of the contact(s)
+ - tapping a pin or a photo shows a view with the name(s) of the contact(s)
 		at this location, and the address
  - if several contacts have the same address, the script cumulates them
  	on an unique pin, by horizontally juxtaposing their photos into a wide one
@@ -51,7 +50,7 @@ Functionalities
 		The button title is green if the thread runs and red if not.
 		Tapping this button gives the list of these contacts with their retries
 		number
-	- The close button forces the thrad to be stopped. 
+ - The close button forces the thread to be stopped. 
  - the script has been tested with 250 contacts and sometimes, after   several 
  		runs, it crashs, perhaps due to memory problems. In this case, remove
 		 the app from memory and restart.
