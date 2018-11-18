@@ -15,14 +15,14 @@ IdentifyAlbumOfPhotos.py
  - get their album name and update dictionary as "name->index,album"
 
 contacts on map.py
-#Functionalities
+Functionalities
  - the script uses a function, geocodeAddressString, for converting an
   	address string into a localization (latitude,longitude).
 		If you want to use it in different scripts, you could store it in
 		site-packages folder
-	- a button (satellite) allows to switch between the standard, satellite and 
+ - a button (satellite) allows to switch between the standard, satellite and 
 		hybrid views of the map
-	- you can zoom and move the map by pinching and swiping
+ - you can zoom and move the map by pinching and swiping
  - a button (pin) allows to switch between a pin or a photo for contact
 		if a contact does not have a photo, a pin is always shown
 	- tapping a pin or a photo shows a view with the name(s) of the contact(s)
