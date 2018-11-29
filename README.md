@@ -65,3 +65,7 @@ SMB_client.py
  - needs pyasn1  from https://github.com/etingof/pyasn1
  - upload/download optional buffering and callback
  - upload/download optional full local path 
+ 
+SetTextFieldPad.py
+ - real numeric pad on iPAD
+ - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
