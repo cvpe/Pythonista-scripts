@@ -62,4 +62,4 @@ SMB_client.py
  - SMB basic client
  - based   on   https://github.com/humberry/smb-example/blob/master/smb-test.py
  - needs smb+nmb from https://github.com/miketeo/pysmb/tree/master/python3
-         pyasn1  from https://github.com/etingof/pyasn1
+ - needs pyasn1  from https://github.com/etingof/pyasn1
