@@ -63,3 +63,5 @@ SMB_client.py
  - based   on   https://github.com/humberry/smb-example/blob/master/smb-test.py
  - needs smb+nmb from https://github.com/miketeo/pysmb/tree/master/python3
  - needs pyasn1  from https://github.com/etingof/pyasn1
+ - upload/download optional buffering and callback
+ - upload/download optional full local path 
