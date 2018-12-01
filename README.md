@@ -65,6 +65,7 @@ SMB_client.py
  - needs pyasn1  from https://github.com/etingof/pyasn1
  - upload/download optional buffering and callback
  - upload/download optional full local path 
+ - instance creation, optinal parameter to print or store eventual error
  
 SetTextFieldPad.py
  - real numeric pad on iPAD
