@@ -72,4 +72,9 @@ SetTextFieldPad.py
  - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
  
 test speech via objc.py
- - xxx
+you can set 
+- the text, even with combined emoji like flags or 'woman artist' 👩 + 🎨 = 👩‍🎨
+- the language/voice among the 52 available
+  - you need to tap the voice and the TableView will expand with all voices
+- the rate of speaking
+- speak or spell, and in this case, the delay between two letters
