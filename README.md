@@ -72,6 +72,7 @@ SetTextFieldPad.py
  - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
  
 test speech via objc.py
+
 you can set 
 - the text, even with combined emoji like flags or 'woman artist' 👩 + 🎨 = 👩‍🎨
 - the language/voice among the 52 available
