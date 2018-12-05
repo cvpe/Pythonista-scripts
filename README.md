@@ -70,3 +70,6 @@ SMB_client.py
 SetTextFieldPad.py
  - real numeric pad on iPAD
  - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
+ 
+test speech via objc.py
+ - xxx
