@@ -81,4 +81,10 @@ you can set
 - speak or spell, and in this case, the delay between two letters
 
 threads_indicator_in_status_bar.py
-- still to ne explained
+
+Display the number of active threads in the status bar
+- little script to start a thread to display permanently the number of active threads in the status bar of Pythonista
+- I wrote this script because some of my scripts, using multi-threads, sometimes let a thread still active even when the script is ended, with its UI closed, and I didn't remark it...
+- the script can be run or launched via the tools or in the Pythonista_startup
+- tapping on the number displays a little popover window with the names of the threads
+- in this popover, you can close this window (x-button) or end the thread it-self (end-button)
