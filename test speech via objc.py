@@ -194,9 +194,10 @@ def b_speak_or_spell(sender):
 			cc = cc + c
 			if p < (len(idxtopos)-1):
 				continue
-		if ('spell' in sender.title) and (cc != ''):
-			speak_or_spell('spell',cc)
-		cc = c
+		else:
+			if ('spell' in sender.title) and (cc != ''):
+				speak_or_spell('spell',cc)
+			cc = c
 		x_prev = x
 	if sender.title == 'speak':
 		speak_or_spell('speak',cc)
