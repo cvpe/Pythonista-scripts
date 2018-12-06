@@ -79,6 +79,7 @@ you can set
   - you need to tap the voice and the TableView will expand with all voices
 - the rate of speaking
 - speak or spell, and in this case, the delay between two letters
+- bug: speak does not work, corrected 06 dec 2018
 
 threads_indicator_in_status_bar.py
 
