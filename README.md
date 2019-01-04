@@ -97,14 +97,14 @@ But some scripts are written for my wife, then I copy these scripts on Pythonist
 But, sometimes, I forget to copy my modified script from local to iCloud.
 Thus, I've decided to display in the status bar (at top) of the iDevice, a label showing the version of the running script, so I can check if the script executed by my wife is the last version.
 For that:
-	- a module VersionInStatusBar.py is installed in site-packages folder
-	- these lines are added at top of my scripts
-from  VersionInStatusBar import VersionInStatusBar
+- a module VersionInStatusBar.py is installed in site-packages folder
+- these lines are added at top of my scripts
+  from  VersionInStatusBar import VersionInStatusBar
 
 example: see https://i.imgur.com/LXMPBlU.jpg
 
 version = 'nn.n '
 VersionInStatusBar(version=version)
-	- this line is added in the will_close def, to remove the label from status bar
+- this line is added in the will_close def, to remove the label from status bar
 VersionInStatusBar(version=False)
 	 
