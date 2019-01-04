@@ -103,5 +103,5 @@ For that:
    * version = 'nn.n'
    * VersionInStatusBar(version=version)
 - this line is added in the will_close def, to remove the label from status bar
-VersionInStatusBar(version=False)
+   * VersionInStatusBar(version=False)
 	 
