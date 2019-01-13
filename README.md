@@ -70,6 +70,7 @@ SMB_client.py
 SetTextFieldPad.py
  - real numeric pad on iPAD
  - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
+ - custom textfield_did_change not called, I added an optional parameter textfield_did_change=function to call 13/01/2019
  
 test speech via objc.py
 
