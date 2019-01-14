@@ -97,9 +97,7 @@ def SetTextFieldPad(tf,pad=None,clearButtonMode=False,undo_redo_pasteBarButtons=
 			b.frame = (x,y,db,db)
 			b.TextField = tf # store tf as key attribute  needed when pressed
 			if 'action' in pad_elem:
-				b.action = pad_elem['action']
-			else:
-				b.action = key_pressed
+			b.action = pad_elem.get('action', key_pressed)
 			v.add_subview(b)
 			x = x + db + dd
 	y = y + db + dd
