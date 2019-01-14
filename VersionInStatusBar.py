@@ -4,12 +4,9 @@ import sys
 
 def VersionInStatusBar(version=False):	
 	# called at begin of a script with version=text
-	#           end										 version=False
-	w = sys.argv[0] 				# Script path and name
-	i =	w.rfind('/') 				# index last /
-	w = w[i+1:]							# script name xxxxxx.py
-	i =	w.rfind('.') 				# index last .
-	script_name = w[:i]			# script name without .py
+	#           end                    version=False
+	root, ext = os.path.splitext(sys.argv[0])  # script path without .py
+	script_name = os.path.basename(root)  # script name without the path
 	app = objc_util.UIApplication.sharedApplication()
 	w = objc_util.ObjCClass('UIApplication').sharedApplication().keyWindow()
 	main_view = w.rootViewController().view()
