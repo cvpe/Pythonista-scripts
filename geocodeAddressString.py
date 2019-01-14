@@ -19,8 +19,8 @@ def geocodeAddressString(address):
 				i = ret.find('>')
 				gps = ret[:i]
 				try:
-					gps = gps.split(',')
-					gps = (float(gps[0]),float(gps[1]))
+					lat, comma, lon = gps.partition(',')
+					gps = float(lat), float(lon)
 				except Exception as e:
 					gps = (None,None)					
 		handler_done = True
