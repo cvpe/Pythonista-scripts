@@ -96,5 +96,4 @@ if 1==1:#__name__=='__main__': # if imported by pythonista startup
 
 		v.present('popover',popover_location=(sender.x+20,sender.y+40), hide_title_bar=True)
 		
-	#create_toolbar_button(my_wrench,os.path.expanduser('~/Documents/..../your icon for the button.png'),0)
 	create_toolbar_button(my_wrench,os.path.expanduser('~/Documents/...../your image for the button.png'),0)
