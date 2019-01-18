@@ -60,6 +60,24 @@ geocodeAddressString
  
 My_Apps_Button_in_TitleBar.py
   - menu of Pythonista scripts displayed by a user button in the TitleBar
+  
+SaveInFiles.py
+
+Function to open a sheet or popover view with the "save in Files app" without passing via the "Open In menu"
+It uses the ObjectiveC UIDocumentPickerViewController, called Picker necise you pick the folder where to save
+Checking source code shows that you could use an UIDocumentPickerMode=3
+instead of 2, but implying a (dangerous) move instead copy.
+Parameters are:
+ - positional: local file to save
+ - positional: width and height of view 
+ - optional title= displayed between the two standard buttons: cancel and add
+ - optional callback= function called when the PickerViewController is
+   - canceled (returns 'cancel')
+   - ended (returns the url where the file has been saved)
+ - optional mode= presentation mode,either
+   - 'sheet' (default)
+   - 'popover' 
+ - optional popover_location= (x,y) tuple where to present the popover view
  
 SMB_client.py
  - SMB basic client
