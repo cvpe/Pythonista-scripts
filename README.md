@@ -58,6 +58,9 @@ contacts on map.py
 geocodeAddressString
  - convert address into GPS location latitude,longitude via APPLE CLGeocoder
  
+My_Apps_Button_in_TitleBar.py
+  - menu of Pythonista scripts displayed by a user button in the TitleBar
+ 
 SMB_client.py
  - SMB basic client
  - based   on   https://github.com/humberry/smb-example/blob/master/smb-test.py
