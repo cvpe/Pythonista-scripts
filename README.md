@@ -54,6 +54,9 @@ contacts on map.py
  - the script has been tested with 250 contacts and sometimes, after   several 
  		runs, it crashs, perhaps due to memory problems. In this case, remove
 		 the app from memory and restart.
+		 
+File_Explorer.py
+  - base of a file explorer, really not perfect
 
 geocodeAddressString
  - convert address into GPS location latitude,longitude via APPLE CLGeocoder
