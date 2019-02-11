@@ -101,13 +101,13 @@ SetTextFieldPad.py
  
 test speech via objc.py
 
-you can set 
-- the text, even with combined emoji like flags or 'woman artist' 👩 + 🎨 = 👩‍🎨
-- the language/voice among the 52 available
-  - you need to tap the voice and the TableView will expand with all voices
-- the rate of speaking
-- speak or spell, and in this case, the delay between two letters
-- bug: speak does not work, corrected 06 dec 2018
+-  you can set 
+  - the text, even with combined emoji like flags or 'woman artist' 👩 + 🎨 = 👩‍🎨
+  - the language/voice among the 52 available
+    - you need to tap the voice and the TableView will expand with all voices
+  - the rate of speaking
+  - speak or spell, and in this case, the delay between two letters
+  - bug: speak does not work, corrected 06 dec 2018
 
 threads_indicator_in_status_bar.py
 
