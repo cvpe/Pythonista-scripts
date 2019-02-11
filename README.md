@@ -7,6 +7,9 @@ Pythonista scripts
  - display it's alarms thresholds (minus if before, plus if after begin of event) in minutes
  - add or update these thresholds
  - save th modified event
+ 
+**File_Picker.py**
+ - file picker usable in a dialog textfield
 
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
