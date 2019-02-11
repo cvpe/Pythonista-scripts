@@ -64,6 +64,9 @@ geocodeAddressString
 My_Apps_Button_in_TitleBar.py
   - menu of Pythonista scripts displayed by a user button in the TitleBar
   
+MyPickDocument.py
+  - use of UIDocumentPickerViewController to open or import an iCloud file
+  
 SaveInFiles.py
 
 Function to open a sheet or popover view with the "save in Files app" without passing via the "Open In menu"
