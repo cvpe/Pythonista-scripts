@@ -1,20 +1,20 @@
 # Pythonista-scripts
 Pythonista scripts
 
-AddAfterAlarmToEvent.py
+**AddAfterAlarmToEvent.py**
  - display calendar events between two selected dates
  - select an event
  - display it's alarms thresholds (minus if before, plus if after begin of event) in minutes
  - add or update these thresholds
  - save th modified event
 
-IdentifyAlbumOfPhotos.py
+**IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
  - store their file name in a dictionary "name->index"
  - scan all photos with Photos Objc Framework
  - get their album name and update dictionary as "name->index,album"
 
-contacts on map.py
+**contacts on map.py**
  - the script uses a function, geocodeAddressString, for converting an
   	address string into a localization (latitude,longitude).
 		If you want to use it in different scripts, you could store it in
@@ -55,19 +55,19 @@ contacts on map.py
  		runs, it crashs, perhaps due to memory problems. In this case, remove
 		 the app from memory and restart.
 		 
-File_Explorer.py
+**File_Explorer.py**
   - base of a file explorer, really not perfect
 
-geocodeAddressString
+**geocodeAddressString**
  - convert address into GPS location latitude,longitude via APPLE CLGeocoder
  
-My_Apps_Button_in_TitleBar.py
+**My_Apps_Button_in_TitleBar.py**
   - menu of Pythonista scripts displayed by a user button in the TitleBar
   
-MyPickDocument.py
+**MyPickDocument.py**
   - use of UIDocumentPickerViewController to open or import an iCloud file
   
-SaveInFiles.py
+**SaveInFiles.py**
 
 Function to open a sheet or popover view with the "save in Files app" without passing via the "Open In menu"
 It uses the ObjectiveC UIDocumentPickerViewController, called Picker necise you pick the folder where to save
@@ -85,7 +85,7 @@ Parameters are:
    - 'popover' 
  - optional popover_location= (x,y) tuple where to present the popover view
  
-SMB_client.py
+**SMB_client.py**
  - SMB basic client
  - based   on   https://github.com/humberry/smb-example/blob/master/smb-test.py
  - needs smb+nmb from https://github.com/miketeo/pysmb/tree/master/python3
@@ -94,12 +94,12 @@ SMB_client.py
  - upload/download optional full local path 
  - instance creation, optinal parameter to print or store eventual error
  
-SetTextFieldPad.py
+**SetTextFieldPad.py**
  - real numeric pad on iPAD
  - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
  - custom textfield_did_change not called, I added an optional parameter textfield_did_change=function to call 13/01/2019
  
-test speech via objc.py
+**test speech via objc.py**
 
 -  you can set 
   - the text, even with combined emoji like flags or 'woman artist' 👩 + 🎨 = 👩‍🎨
@@ -109,7 +109,7 @@ test speech via objc.py
   - speak or spell, and in this case, the delay between two letters
   - bug: speak does not work, corrected 06 dec 2018
 
-threads_indicator_in_status_bar.py
+**threads_indicator_in_status_bar.py**
 
 Display the number of active threads in the status bar
 - little script to start a thread to display permanently the number of active threads in the status bar of Pythonista
@@ -118,7 +118,7 @@ Display the number of active threads in the status bar
 - tapping on the number displays a little popover window with the names of the threads
 - in this popover, you can close this window (x-button) or end the thread it-self (end-button)
 
-VersionInStatusBar.py
+**VersionInStatusBar.py**
 
 I program my scripts on my ipad, in local Pythonista folders.
 But some scripts are written for my wife, then I copy these scripts on Pythonista iCloud folder, and they are executed by tapping an home screen icon pointing to pythonista3://script_name?action=run&root=icloud.
