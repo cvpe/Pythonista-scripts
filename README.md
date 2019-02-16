@@ -10,6 +10,7 @@ Pythonista scripts
  
 **File_Picker.py**
  - file picker usable in a dialog textfield
+ - displays thumbnails for images
 
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
