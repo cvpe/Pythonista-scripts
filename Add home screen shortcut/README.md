@@ -33,7 +33,7 @@ It is not needed to support several icon sizes in the html file because an home 
 5) at ok, the script 
    - resizes the square area to the icon size 
    - converts the image into a base74 string to be integrated in the html
-   - opens Safari for the standard iser process of creating an home screen
+   - opens Safari for the standard user process of creating an home screen
    shortcut
 
 
