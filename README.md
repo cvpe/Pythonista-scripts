@@ -138,5 +138,4 @@ For that:
 - this line is added in the will_close def, to remove the label from status bar
    * VersionInStatusBar(version=False)
 	 
-example: see https://i.imgur.com/LXMPBlU.jpg
 ![](https://i.imgur.com/LXMPBlU.jpg)
