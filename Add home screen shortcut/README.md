@@ -1,3 +1,5 @@
+Based on a @omz [script](http://www.editorial-workflows.com/workflow/5872060161064960/e831ijSVsok)
+
 Altough last version of Pythonista offers an easy way to add an home screen shortcut for an edited script, it still only allows as icon a standard icon.
 This script will allow to create an home screen shortcut, either for any web page, either for any Pythonista script, but, mostly, will allow user to select any image as icon:
 - a photo from camera roll
