@@ -43,3 +43,5 @@ The script needs some non-standard modules you should put in site-packages
     - display thumbnails of images
     - show only selectable files (initially non selectable were grayed)
   - [MyPickDocument.py](https://github.com/cvpe/Pythonista-scripts/blob/master/MyPickDocument.py) to pick any file in iCloud Drive
+
+Oups, I'm more tired by this short description without using Google Translate than by writing the entire script 😅
