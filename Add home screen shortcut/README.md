@@ -24,6 +24,7 @@ It is not needed to support several icon sizes in the html file because an home 
        use as icon
        - then, he can drag and drop this image to a "receiving area"
      - once the image is defined, it is displayed at bottom of the dialog
+     - selected item is colored to show origin of the image. It is not set as selected because, in this case, it could not be selected one more time
 3) the user tap ok when all needed fields are filled and the script will check 
    their coherence while staying in the dialog
    - top of tableview is an error message label
