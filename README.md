@@ -139,3 +139,4 @@ For that:
    * VersionInStatusBar(version=False)
 	 
 example: see https://i.imgur.com/LXMPBlU.jpg
+![](https://i.imgur.com/LXMPBlU.jpg)
