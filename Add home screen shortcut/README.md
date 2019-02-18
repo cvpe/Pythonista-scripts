@@ -27,12 +27,12 @@ It is not needed to support several icon sizes in the html file because an home 
 3) the user tap ok when all needed fields are filled and the script will check 
    their coherence while staying in the dialog
    - top of tableview is an error message label
-4) the user has still to a define square area for the icon by 
+4) the user has still to define a square area for the icon by 
    - resizing the square by touching and moving a corner
    - moving the square by touching and moving inside the square
 5) at ok, the script 
    - resizes the square area to the icon size 
-     converts the image into a base74 string to be integrated in the html
+   - converts the image into a base74 string to be integrated in the html
    - opens Safari for the standard iser process of creating an home screen
    shortcut
 
