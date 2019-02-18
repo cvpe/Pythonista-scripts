@@ -48,3 +48,8 @@ The script needs some non-standard modules you should put in site-packages
 Given my poor knowledge of Python, it is far from perfection but I think it is usable in most cases. If it can only help one person, I would be happy.
 
 Oups, I'm more tired by this short description without using Google Translate than by writing the entire script 😅
+
+![drag and drop](https://i.imgur.com/CZMDN3j.jpg)
+![icon area](https://i.imgur.com/uVDSqfC.jpg)
+![safari](https://i.imgur.com/AQ0W1uH.jpg)
+![shortcut](https://i.imgur.com/6NV97Sj.jpg)
