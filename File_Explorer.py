@@ -1,25 +1,26 @@
 # coding: utf-8
 # from omz FilePicker
 
-import ui
+import ast
+import datetime
+import functools
 import os
+import re
+import sqlite3
 import sys
-from objc_util import ObjCInstance, ObjCClass
-from operator import attrgetter
+import tarfile
+import threading
 import time
 import unicodedata
-import threading
-import functools
-import re
-import datetime
-import dialogs
+import zipfile
+from operator import attrgetter
+
 import console
-import ast
+import dialogs
 import editor
 import ImageFont
-import zipfile
-import tarfile
-import sqlite3
+import ui
+from objc_util import ObjCClass, ObjCInstance
 
 # replace ui._bind_action by mine because loading .pyui files generates
 # warnings "could not bind action" due to missing actions code because
