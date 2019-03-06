@@ -1115,7 +1115,6 @@ class TreeDialogController (object):
 			elif f == 'delete':
 				# Delete pressed
 				# Check if folder is empty
-				
 				if os.listdir(path) != []:
 					my_hud_alert(self.view,'Folder is not empty', 'error', duration=2)
 					return
@@ -1164,7 +1163,7 @@ class TreeDialogController (object):
 				added_name = f['name'].strip()
 				if added_name == '':
 					# name would be empty
-					my_hud_alert(self.view,'Name must be defined', 'error',duration=2)p
+					my_hud_alert(self.view,'Name must be defined', 'error',duration=2)
 					return
 				norm_added_name = ''.join((c for c in unicodedata.normalize('NFD', added_name) if unicodedata.category(c) != 'Mn'))
 				if added_name != norm_added_name:
