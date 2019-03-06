@@ -42,21 +42,26 @@ ui._bind_action = my_bind_action
 def my_hud_alert(my_back,msg,type,duration=1,keep_same_width=False):
 
 	my_ui_view = my_back
-	if type == 'warning':
-		my_back['msg_label'].text_color = 'black'	
-		img = '⚠️'
-	elif type == 'success':
-		my_back['msg_label'].text_color = 'green'	
-		img = '✅'
-	elif type == 'error':
-		my_back['msg_label'].text_color = 'red'	
-		img = '❌'
-	elif type == 'ok':
-		my_back['msg_label'].text_color = 'black'	
-		img = '✅'
-	else:
-		my_back['msg_label'].text_color = 'blue'	
-		img = 'ℹ'
+	#if type == 'warning':
+	#	my_back['msg_label'].text_color = 'black'	
+	#	img = '⚠️'
+	#elif type == 'success':
+	#	my_back['msg_label'].text_color = 'green'	
+	#	img = '✅'
+	#elif type == 'error':
+	#	my_back['msg_label'].text_color = 'red'	
+	#	img = '❌'
+	#elif type == 'ok':
+	#	my_back['msg_label'].text_color = 'black'	
+	#	img = '✅'
+	#else:
+	#	my_back['msg_label'].text_color = 'blue'	
+	#	img = 'ℹ'
+	alert_types = {'warning': ('black', '⚠️'),
+               'success': ('green', '✅'),
+               'error': ('red', '❌'),
+               'ok': ('black', '✅')}
+	(my_back['msg_label'].text_color, img) = alert_types.get(type, ('blue', 'ℹ'))
 		
 	my_back['msg_label'].text = msg+' '+img+' '
 	my_back['msg_label'].line_break_mode = ui.LB_WORD_WRAP
