@@ -132,7 +132,7 @@ class my_thread_scan(threading.Thread):
 			os.chdir(file_path)
 			filelist = os.listdir(file_path)
 			for file in filelist:
-				f_full = file_path + file
+				f_full += file
 				#print(path,file)
 				if os.path.isdir(f_full):
 					self.loc_dirs(path+file+'/') # explore it
@@ -144,8 +144,8 @@ class my_thread_scan(threading.Thread):
 					f = unicodedata.normalize('NFC', f)
 					files[f] = [loc_size,loc_mtime]
 					n,s,nf = folders[path]
-					n = n + 1
-					s = s + loc_size
+					n += 1
+					s += loc_size
 					folders[path] = [n,s,nf]
 					if len(files) % 100 == 0:
 						picker.view['progress_bar'].width = picker.view.width * len(files)/26000
@@ -167,9 +167,9 @@ class my_thread_scan(threading.Thread):
 			folders[path_up] = [0,0,0]
 		nt,st,nft = folders[path_up]
 		n,s,nf = folders[path]
-		nt = nt + n
-		st = st + s
-		nft = nft + nf + 1
+		nt += n
+		st += s
+		nft += nf + 1
 		folders[path_up] = [nt,st,nft]
 		return
 	
@@ -195,7 +195,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 		open_in_button.tint_color = 'blue'
 		open_in_button.image = ui.Image.named('iob:ios7_upload_outline_32')
 		open_in_button.action = open_in_button_action
-		c.container_view.right_button_items = c.container_view.right_button_items + (open_in_button,)			
+		c.container_view.right_button_items += (open_in_button,)			
 		
 	if delete_button:
 		# Add a delete button
@@ -204,7 +204,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 		delete_button.image = ui.Image.named('iob:ios7_trash_outline_32')
 		delete_button.action = delete_button_action
 		# right buttons is a tuple, the way to add an element is "+(element,)"
-		c.container_view.right_button_items = c.container_view.right_button_items + (delete_button,)
+		c.container_view.right_button_items += (delete_button,)
 		
 	if add_button:
 		# Add a add button
@@ -213,7 +213,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 		#add_button.tint_color = 'red'
 		add_button.action = add_button_action
 		# right buttons is a tuple, the way to add an element is "+(element,)"
-		c.container_view.right_button_items = c.container_view.right_button_items + (add_button,)
+		c.container_view.right_button_items += (add_button,)
 
 				
 	c.was_canceled = True		# set False by done_action in FormDialogController
@@ -223,6 +223,8 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 	y = 35
 	for s in c.cells:
 		y += sum(cell.height for cell in s)
+		#for cell in s:
+		#	y += cell.height
 	if cover != None:
 
 		w = c.container_view.width
@@ -242,7 +244,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 					gmap_rec = ''
 					fil = open(cover,'r',encoding='utf-8')
 					for rec in fil:
-						gmap_rec = gmap_rec + rec
+						gmap_rec += rec
 					fil.close()
 					# {"url": url,"doc_id: doc_id,"email": email,"resource_id": id}	
 					gmap_dict = ast.literal_eval(gmap_rec) 	# convert str -> dict
@@ -257,7 +259,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 				if ext in ['.txt','.dat','.infos','.py','.md','.vcf','.ics']:
 					fil = open(cover,'r',encoding='utf-8')
 					for rec in fil:
-						t = t + rec
+						t += rec
 					fil.close()
 					file_content = t
 					# add an Edit button
@@ -281,13 +283,13 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 				elif ext in ['.mht','.mhtml']:
 					fil = open(cover,'r',encoding='utf-8',errors='replace')
 					for rec in fil:
-						t = t + rec
+						t += rec
 					fil.close()
 				elif ext in ['.db']:
 					try:
 						conn = sqlite3.connect(cover)
 						for line in conn.iterdump():
-							t = t + line + '\n'
+							t += line + '\n'
 						conn.close()
 					except Exception as e:
 						t = str(e)
@@ -296,7 +298,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 						zip = zipfile.ZipFile(cover,mode='r')
 						# loop on zip members names
 						for zip_file in zip.namelist():
-							t = t + zip_file + '\n'
+							t += zip_file + '\n'
 						zip.close()
 					except Exception as e:
 						t = str(e)
@@ -305,7 +307,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 						tar = tarfile.open(cover,mode='r')
 						# loop on tar members names
 						for tar_file in tar.getnames():
-							t = t + tar_file + '\n'
+							t += tar_file + '\n'
 						tar.close()
 					except Exception as e:
 						t = str(e)
@@ -343,7 +345,7 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 				cover_image.frame = (x,y,w,h)
 				cover_image.frame = (x+20,y+(h-32)/2,w-40,32)
 				cover_image.alignment = ui.ALIGN_CENTER
-				cover_image.font= ('Courier-Bold',20)
+				cover_image.font = ('Courier-Bold',20)
 				cover_image.text_color = 'red'
 				cover_image.text = 'No available viewer'
 				
@@ -422,9 +424,7 @@ def top_button_action(sender):
 		
 def bot_button_action(sender):
 	global cover_image
-	y = cover_image.content_size[1] - cover_image.height 
-	if y < 0:
-		y = 0	
+	y = max(0, cover_image.content_size[1] - cover_image.height)
 	cover_image.content_offset = (0,y)
 	
 def edit_button_action(sender):
@@ -475,7 +475,7 @@ def my_list_popover(elements,val=None,x=None,y=None,color='white',title=None):
 				w_ele,h_ele = font.getsize(element)
 				if w_ele > w:
 					w = w_ele
-			w = w + 32
+			w += 32
 			elements_txt.content_size = (w,h)
 			h_max = h_screen/2
 			if h > h_max:
@@ -534,7 +534,7 @@ def my_list_popover(elements,val=None,x=None,y=None,color='white',title=None):
 		lst.append(element)
 		if element == val:
 			selected = i
-		i = i + 1
+		i += 1
 	w_screen,h_screen = ui.get_screen_size()
 	if not x:
 		x = int(w_screen/2)
@@ -661,7 +661,7 @@ class FileTreeNode (TreeNode):
 				folder = path[i:]
 			folder = unicodedata.normalize('NFC', folder)
 			if folder[-1] != '/':
-				folder = folder + '/'
+				folder += '/'
 			#print('FileTreeNode:',folder)
 			# folder Documents/
 			#        Documents/folder/
@@ -673,7 +673,7 @@ class FileTreeNode (TreeNode):
 			# File
 			self.subtitle = human_size((os.stat(self.path).st_size))
 			mt = os.path.getmtime(self.path)
-			self.subtitle = self.subtitle + '  [' + datetime.datetime.fromtimestamp(mt).strftime('%d/%m/%Y %H:%M:%S') + ']'
+			self.subtitle += '  [' + datetime.datetime.fromtimestamp(mt).strftime('%d/%m/%Y %H:%M:%S') + ']'
 
 	@property
 	def cmp_title(self):
@@ -852,8 +852,7 @@ class TreeDialogController (object):
 		self.table_view.reload()
 	
 	def flatten_entries(self, entries, dest=None):
-		if dest is None:
-			dest = []
+		dest = dest or []
 		for entry in entries:
 			dest.append(entry)
 			if not entry.leaf and entry.expanded:
@@ -887,7 +886,7 @@ class TreeDialogController (object):
 			else:
 				folder = folder[i:] +'/'
 			if folder[-1] != '/':
-				folder = folder + '/'
+				folder += '/'
 			if folder in folders:
 				entry.subtitle = human_size(folders[folder][1]) + ' [' +  str(folders[folder][0]) + ' files, ' + str(folders[folder][2]) + ' folders]'
 				self.flat_entries[row] = entry		# store it
@@ -901,10 +900,7 @@ class TreeDialogController (object):
 		else:
 			label_frame = (label_x, 0, label_w, 44)
 		label = ui.Label(frame=label_frame)
-		if entry.subtitle:
-			label.font = ('<System>', 16)
-		else:
-			label.font = ('<System>', 18)
+		label.font = ('<System>', 16) if entry.subtitle else ('<System>', 18)
 		label.text = entry.title
 		label.flex = 'W'
 		label.text_color = 'black'		
@@ -965,10 +961,7 @@ class TreeDialogController (object):
 		'''Invoked by 'expand' button'''
 		row = self.row_for_view(sender)
 		entry = self.flat_entries[row]
-		if entry.expanded:
-			sender.image = ui.Image.named('ExpandFolder')
-		else:
-			sender.image = ui.Image.named('CollapseFolder')
+		sender.image = ui.Image.named('ExpandFolder' if entry.expanded else 'CollapseFolder')
 		self.toggle_dir(row)
 
 	def toggle_dir(self, row):
@@ -1056,12 +1049,12 @@ class TreeDialogController (object):
 				path_node = node.path
 				if not node.leaf:
 					# node of a folder, ad a / at end for comparing
-					path_node = path_node + '/'
+					path_node += '/'
 				#print(path_node)
 				if unicodedata.normalize('NFC', path_node)[-len(file_norm):] == file_norm:
 					#print(path_node)
 					break
-				row = row + 1
+				row += 1
 			#print(node.title,row)
 			# Force scroll so tje selected row is on screen
 			# I don't know why but self.table_view.row_height = 1!!!
@@ -1377,15 +1370,9 @@ class TreeDialogController (object):
 					return
 				# Check of extension would change
 				i = file_name.rfind('.')
-				if i >= 0:
-					file_ext = file_name[i:]
-				else:
-					file_ext =''
+				file_ext = file_name[i:] if i >= 0 else ''
 				i = file_name_new.rfind('.')
-				if i >= 0:
-					file_ext_new = file_name_new[i:]
-				else:
-					file_ext_new =''
+				file_ext_new = file_name_new[i:] if i >= 0 else ''
 				if file_ext.lower() != file_ext_new.lower():
 					# File extension would change
 					b = console.alert('Do you confirm the change of extension', file_ext+'\n|\nV\n'+file_ext_new,'yes','no',hide_cancel_button=True)
@@ -1415,7 +1402,7 @@ class TreeDialogController (object):
 		# update size and number of files in tree of folder
 		folder = folder_in
 		if folder[-1] != '/':
-			folder = folder + '/'
+			folder += '/'
 		#print('update_folder_nodes_containing_path: folder=',folder)
 		for folder_key in folders:
 			if folder[:len(folder_key)] == folder_key: 
@@ -1432,7 +1419,7 @@ class TreeDialogController (object):
 				node_path = folder_node.path[i:] 
 			if folder[:len(node_path)] == node_path:
 				if node_path[-1] != '/':
-					node_path = node_path + '/'
+					node_path += '/'
 				if node_path in folders:
 					n,s,nf = folders[node_path]
 					folder_node.subtitle = human_size(s) + ' [' +  str(n) + ' files, ' + str(nf) + ' folders]'
