@@ -222,8 +222,9 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 	
 	y = 35
 	for s in c.cells:
-		for cell in s:
-			y += cell.height
+		y += sum(cell.height for cell in s)
+		#for cell in s:
+		#	y += cell.height
 	if cover != None:
 
 		w = c.container_view.width
