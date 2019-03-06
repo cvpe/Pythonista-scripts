@@ -1,26 +1,25 @@
 # coding: utf-8
 # from omz FilePicker
 
-import ast
-import datetime
-import functools
+import ui
 import os
-import re
-import sqlite3
 import sys
-import tarfile
-import threading
+from objc_util import ObjCInstance, ObjCClass
+from operator import attrgetter
 import time
 import unicodedata
-import zipfile
-from operator import attrgetter
-
-import console
+import threading
+import functools
+import re
+import datetime
 import dialogs
+import console
+import ast
 import editor
 import ImageFont
-import ui
-from objc_util import ObjCClass, ObjCInstance
+import zipfile
+import tarfile
+import sqlite3
 
 # replace ui._bind_action by mine because loading .pyui files generates
 # warnings "could not bind action" due to missing actions code because
@@ -248,10 +247,9 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 					cover_image.load_url(os.path.abspath(cover))
 				elif ext in ['.gmap']:
 					gmap_rec = ''
-					fil = open(cover,'r',encoding='utf-8')
-					for rec in fil:
-						gmap_rec += rec
-					fil.close()
+					with open(cover,'r',encoding='utf-8') as fil:
+						for rec in fil:
+							gmap_rec += rec
 					# {"url": url,"doc_id: doc_id,"email": email,"resource_id": id}	
 					gmap_dict = ast.literal_eval(gmap_rec) 	# convert str -> dict
 					url = gmap_dict['url']
@@ -263,10 +261,9 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 				cover_image.scroll_enabled = True
 				t = ''
 				if ext in ['.txt','.dat','.infos','.py','.md','.vcf','.ics']:
-					fil = open(cover,'r',encoding='utf-8')
-					for rec in fil:
-						t += rec
-					fil.close()
+					with open(cover,'r',encoding='utf-8') as fil:
+						for rec in fil:
+							t += rec
 					file_content = t
 					# add an Edit button
 					edit_button = ui.ButtonItem()
@@ -287,10 +284,9 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 					msg.hidden = True
 					c.container_view.add_subview(msg)
 				elif ext in ['.mht','.mhtml']:
-					fil = open(cover,'r',encoding='utf-8',errors='replace')
-					for rec in fil:
-						t += rec
-					fil.close()
+					with open(cover,'r',encoding='utf-8',errors='replace') as fil:
+						for rec in fil:
+							t += rec
 				elif ext in ['.db']:
 					try:
 						conn = sqlite3.connect(cover)
@@ -301,20 +297,18 @@ def myform_dialog(title='', fields=None,sections=None, done_button_title='Done',
 						t = str(e)
 				elif ext in ['.zip']:
 					try:
-						zip = zipfile.ZipFile(cover,mode='r')
-						# loop on zip members names
-						for zip_file in zip.namelist():
-							t += zip_file + '\n'
-						zip.close()
+						with zipfile.ZipFile(cover,mode='r') as zip:
+							# loop on zip members names
+							for zip_file in zip.namelist():
+								t += zip_file + '\n'
 					except Exception as e:
 						t = str(e)
 				elif ext in ['.gz']:
 					try:
-						tar = tarfile.open(cover,mode='r')
-						# loop on tar members names
-						for tar_file in tar.getnames():
-							t += tar_file + '\n'
-						tar.close()
+						with tarfile.open(cover,mode='r') as tar:
+							# loop on tar members names
+							for tar_file in tar.getnames():
+								t += tar_file + '\n'
 					except Exception as e:
 						t = str(e)
 				cover_image.text = t
@@ -453,9 +447,8 @@ def edit_button_action(sender):
 		else:
 			# Save file
 			file_content = cover_image.text
-			fil = open(cover_file,'wt',encoding='utf-8')
-			fil.write(file_content)
-			fil.close()
+			with open(cover_file,'wt',encoding='utf-8') as fil:
+				fil.write(file_content)
 			c.was_canceled = False
 			c.was_deleted = False
 			c.container_view.close()
@@ -1193,9 +1186,8 @@ class TreeDialogController (object):
 				if f['file_or_folder']:
 					# on => file
 					# Create local file of 0 bytes
-					fil = open(added_path,'wt',encoding='utf-8')
-					#fil.write('only for tsting with size non zero')	
-					fil.close()
+					with open(added_path,'wt',encoding='utf-8') as fil:
+						pass  # fil.write('only for tsting with size non zero')
 					full_path = path + '/' + added_name
 					mt = os.path.getmtime(full_path)
 					size = os.path.getsize(full_path)
