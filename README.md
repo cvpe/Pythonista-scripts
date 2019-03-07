@@ -16,6 +16,13 @@ Pythonista scripts
 **Folder_Picker**
   - based on OMZ Script at https://gist.github.com/omz/e3433ebba20c92b63111
   
+**DownloadGithubRawFile.py**
+  - use webview to navigate until a Github **RAW** file to download in Pythonista local files
+    - of course, an url can be pasted in the url TextField
+  - a **download** button will be enabled and has to be tapped
+  - if File_Picker module present, asks user to select directory where to copy the downloaded Github file
+    - else, file will be downloaded in the Documents root directory
+  
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
  - store their file name in a dictionary "name->index"
