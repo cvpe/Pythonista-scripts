@@ -102,9 +102,7 @@ class MyView(ui.View):
 				console.hud_alert('folder selection canceled','error',1)
 				return
 			else:
-				t = 'Pythonista3/'
-				i = dir.find(t)
-				loc = dir[i+len(t):]
+				loc = s.split('Pythonista3/')[-1]
 				console.hud_alert('File copied on '+loc,'success',2)
 		else:
 			# Folder_Picker module does not exist
