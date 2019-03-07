@@ -71,7 +71,7 @@ class MyView(ui.View):
 	def textfield_did_end_editing(self, textfield):
 		#print('did_end_editing',textfield.name,textfield.text)
 		url = textfield.text
-		if not (url.startswith('http://') or url.startswith('https://')):
+		if not url.startswith(('http://', 'https://')):
 			url = 'http://' + url
 		self['webview'].load_url(url)		
 		
