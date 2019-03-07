@@ -83,7 +83,8 @@ class MyView(ui.View):
 	def go_down(self,sender):
 		# download from the web
 		try:
-			data = requests.get(self['url'].text).content
+			url = self['url'].text
+			data = requests.get(url).content
 		except Exception as e:
 			console.hud_alert('download error '+str(e),'error',2)
 			print('download error for url='+url,str(e))
