@@ -13,6 +13,9 @@ Pythonista scripts
  - displays thumbnails for images
  - 17FEB2019: add **only** parameter, True => only selectable (asked extension) files are showed
 
+**Folder_Picker**
+  - based on OMZ Script at https://gist.github.com/omz/e3433ebba20c92b63111
+  
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
  - store their file name in a dictionary "name->index"
