@@ -22,7 +22,7 @@ Pythonista scripts
   - a **download** button will be enabled and has to be tapped
   - if File_Picker module present, asks user to select directory where to copy the downloaded Github file
     - else, file will be downloaded in the Documents root directory
-  edit: 08MAY2019: bug "url pasted or entered in TextField gave a crash" corrected
+  - 08MAY2019: bug "url pasted or entered in TextField gave a crash" corrected
   
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
