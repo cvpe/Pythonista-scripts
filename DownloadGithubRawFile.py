@@ -41,7 +41,7 @@ class MyView(ui.View):
 		self.add_subview(tf)
 
 		y = tf.y + tf.height + 2
-		wv = ui.WebView()
+		wv = ui.WebView(name='webview')
 		wv.frame = (2,y,w-2*2,h-y-2)
 		wv.delegate = self
 		wv.border_color = 'blue'
