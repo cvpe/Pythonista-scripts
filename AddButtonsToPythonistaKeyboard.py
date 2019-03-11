@@ -76,7 +76,7 @@ class MyView(ui.View):
 		self.moving = ui.Button()
 		self.moving.font = ('<system>',self.h_button-4)
 		self.moving.frame = (0,10,self.h_button,self.h_button)
-		self.moving.icons = ['emj:Delivery_Truck', 'emj:Car_1','emj:Car_2', 'emj:Bus', 'emj:Police_Car', 'emj:Railway_Car']
+		self.moving.icons = ['emj:Delivery_Truck', 'emj:Car_1','emj:Car_2', 'emj:Bus', 'emj:Police_Car', 'emj:Railway_Car','emj:Speedboat']
 		self.moving.index = 0
 		self.add_subview(self.moving)
 		self.update_interval = 0.06
