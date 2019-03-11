@@ -4,7 +4,7 @@ import ui
 
 def key_pressed(sender):
 		import ui
-		from objc_util import objc_instance
+		import objc_util
 		tv = sender.objc_instance.firstResponder()	# associated TextView
 		# get actual cursor position					
 		cursor = tv.offsetFromPosition_toPosition_(tv.beginningOfDocument(), tv.selectedTextRange().start())
