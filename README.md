@@ -7,6 +7,21 @@ Pythonista scripts
  - display it's alarms thresholds (minus if before, plus if after begin of event) in minutes
  - add or update these thresholds
  - save th modified event
+
+**AddButtonsToPythonistaKeyboard.py**
+
+Add your own keys in the standard Pythonista keyboard.
+
+  - The script shows how we can add supplementar keys to the standard Pythonista keyboard. 
+Unlike the new "keyboard" feature of the beta, this uses the standard keyboard, so in your own language and not the QWERTY keyboard of the new feature.
+
+  - Check the (little) script to understand how you can add 'normal' keys that you use often but which are not displayed in the ABC initial keyboard, like >, #, " and \ in my example. You can also add keys for execute some particular process on your edited file, like 'next word', 'move cursor left', 'move cursor right' and 'delete at right of cursor' in my example.
+To test it, you can edit and run it. Tapping anywhere in the file will show the keyboard, as usual, and you can try the new keys. Be careful, it will modify the script.
+
+  - To use it in the real life, you will need to add it as a tool (wrench button) and execute it for each new editor's tab where you want to have your additional keys available. There is no known way, I think, to automatically run such a tool at each new edited tab.
+
+  - For the fun, I've also put some moving emoji's on a road behind the keys.
+Of course, you can very easily remove this code, but I just wanted to show how we can do a lot in this little ui.View (InputAccessoryView) above the keyboard.
  
 **File_Picker.py**
  - file picker usable in a dialog textfield
