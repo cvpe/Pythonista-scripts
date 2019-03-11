@@ -119,6 +119,7 @@ class MyView(ui.View):
 			emoji = self.moving.icons[self.moving.index]
 			self.moving.image = ui.Image.named(emoji).with_rendering_mode(ui.RENDERING_MODE_ORIGINAL)
 			self.line.hidden = not (emoji == 'emj:Railway_Car')
+			self.road.border_color = 'blue' if emoji == 'emj:Speedboat' else 'green'
 		self.moving.x = x
 		#================================================ for the fun end
 
