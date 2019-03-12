@@ -8,7 +8,7 @@ Pythonista scripts
  - add or update these thresholds
  - save th modified event
 
-**AddButtonsToPythonistaKeyboard.py**
+**AddButtonsToPythonistaKeyboard.py**      **iPAD ONLY**
 
 Add your own keys in the standard Pythonista keyboard.
 
