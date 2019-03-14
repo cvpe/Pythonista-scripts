@@ -84,9 +84,7 @@ class MyView(ui.View):
 		
 		# build buttons
     		for pad_elem in self.pad:
-			if pad_elem['key'] == 'nul':					# let free space	
-				continue
-			elif pad_elem['key'] == 'new row':		# new row
+			if pad_elem['key'] in ('nul', 'new row'):		#  free space or new row
 				continue
 			button = ui.Button()									# Button for user functionnality
 			button.name = pad_elem['key']
@@ -137,10 +135,7 @@ class MyView(ui.View):
 		x = x0
 		w_button = (ui.get_screen_size()[0] - 2*x0 - 17*dx - dx_middle)/18
 		for pad_elem in self.pad:
-			if 'width' in pad_elem:
-				nw = pad_elem['width']
-			else:
-				nw = 1
+			nw = pad_elem.get('width', 1)
 			wb = w_button*nw + dx*(nw-1)
 			if (x + wb + dx) > self.width:
 				y = y + self.h_button + dy
@@ -153,10 +148,7 @@ class MyView(ui.View):
 				x = x0
 				continue
 			button = self[pad_elem['key']]
-			if (x+wb) > self.width/2:
-				xb = x + dx_middle
-			else:
-				xb = x
+			xb = x + dx_middle if (x+wb) > self.width/2 else x
 			button.frame = (xb,y,wb,self.h_button)
 			if button.title != '':
 				font_size = self.h_button - 8
