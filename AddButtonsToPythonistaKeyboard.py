@@ -135,7 +135,7 @@ class MyView(ui.View):
 		x = x0
 		w_button = (ui.get_screen_size()[0] - 2*x0 - 17*dx - dx_middle)/18
 		for pad_elem in self.pad:
-			nw = pad_elem.get('width'], 1)
+			nw = pad_elem.get('width', 1)
 			wb = w_button*nw + dx*(nw-1)
 			if (x + wb + dx) > self.width:
 				y = y + self.h_button + dy
