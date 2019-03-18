@@ -85,6 +85,12 @@ Of course, you can very easily remove this code, but I just wanted to show how w
  - the script has been tested with 250 contacts and sometimes, after   several 
  		runs, it crashs, perhaps due to memory problems. In this case, remove
 		 the app from memory and restart.
+		
+**Export script to pdf.py**
+ - is based on an @omz [sample](https://forum.omz-software.com/topic/1950/syntax-highlight-python-code-on-screen-while-running)
+ - needs that you install **xhtml2pdf** via stash, then pip install xhtml2pdf
+ - can be added as a tool via wrench menu
+ - when executed on an edited script, creates a file **script_name.pdf** with highlighted code
 		 
 **File_Explorer.py**
   - base of a file explorer, really not perfect
