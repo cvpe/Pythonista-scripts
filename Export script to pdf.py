@@ -17,6 +17,6 @@ styles = html_formatter.get_style_defs()
 html = '<html><head><style>%s</style></head><body>%s</body></html>' % (styles, highlighted_code)
 
 # html -> pdf
-file_name = os.path.basename(os.path.splitext(editor.get_path())[0]) + '.pdf'
+file_name = os.path.splitext(editor.get_path())[0] + '.pdf'
 with open(file_name, 'wb') as fil:
 	pisa.CreatePDF(html,fil)
