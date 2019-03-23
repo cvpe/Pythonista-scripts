@@ -106,7 +106,10 @@ class MyView(ui.View):
 			self.add_subview(button)	
 		self.layout()		
 
-	#================================================ for the fun begin				
+	#================================================ for the fun begin		
+	def fun(self,sender):	
+		self.update_interval = 0.06 - self.update_interval
+		
 	def update(self):
 		import ui
 		x = self.moving.x - 5
