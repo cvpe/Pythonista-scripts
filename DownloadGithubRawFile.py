@@ -18,6 +18,7 @@ class MyView(ui.View):
 		self.background_color='white'
 		self.github_url = 'https://github.com/'
 		self.github_raw = 'https://raw.githubusercontent.com/'
+		self.github_raw2= 'https://gist.githubusercontent.com/'
 		
 		bi_forw = ui.ButtonItem(image=ui.Image.named('iob:ios7_arrow_forward_32'))
 		bi_forw.action = self.go_forw
@@ -54,7 +55,7 @@ class MyView(ui.View):
 		self['url'].text = self.url
 		# check of github raw
 		self.right_button_items[0].enabled = False
-		if self.url[:len(self.github_raw)] == self.github_raw:
+		if self.url[:len(self.github_raw)] == self.github_raw or self.url[:len(self.github_raw2)] == self.github_raw2:
 			# enable raw button
 			self.right_button_items[0].enabled = True				
 				
