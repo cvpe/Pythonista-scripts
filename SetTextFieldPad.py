@@ -1,5 +1,7 @@
 import ui
 from objc_util import *
+from math import cos,sin,pi
+from random import random
 
 def SetTextFieldPad(tf,pad=None,clearButtonMode=False,undo_redo_pasteBarButtons=False,textfield_did_change=None):
 	if not pad:
@@ -95,6 +97,12 @@ def SetTextFieldPad(tf,pad=None,clearButtonMode=False,undo_redo_pasteBarButtons=
 				b.title = pad_elem['title']
 
 			b.frame = (x,y,db,db)
+			if broken:
+				r = random()			# generate between 0 and 1
+				# angle between -10° and 10°
+				a = (pi/180) * (r-0.5)*20
+				rot = CGAffineTransform(cos(a),-sin(a),sin(a),cos(a),0,0)
+				ObjCInstance(b).transform = rot
 			b.TextField = tf # store tf as key attribute  needed when pressed
 			b.action = pad_elem.get('action', key_pressed)
 			v.add_subview(b)
