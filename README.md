@@ -136,7 +136,8 @@ Parameters are:
 **SetTextFieldPad.py**
  - real numeric pad on iPAD
  - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
- - custom textfield_did_change not called, I added an optional parameter textfield_did_change=function to call 13/01/2019
+ - 13JAN2019: custom textfield_did_change not called, I added an optional parameter textfield_did_change=function to call 
+ - 17APR2019: added optional parameter to rotate, at random between -10° and +10°, each key
  
 **test speech via objc.py**
 
