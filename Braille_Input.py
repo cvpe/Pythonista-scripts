@@ -143,8 +143,8 @@ if __name__ == '__main__':
 	tf = ui.TextField()
 	SetTextFieldPad(tf)
 	tf.text = ''
-	tf.width = 200
-	tf.name = 'Japanese Braille'
+	tf.width = 250
+	tf.name = 'Japanese Braille (点字)'
 	tf.present('sheet')
 	tf.begin_editing()
 	tf.wait_modal()
