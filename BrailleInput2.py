@@ -46,6 +46,15 @@ class MyView(ui.View):
 				}
 			self.save_settings()
 			
+		b_close = ui.Button()
+		b_close.frame = (0,30,48,48)
+		b_close.background_image =ui.Image.named('iob:ios7_close_outline_32')
+		b_close.action = self.close_button_action
+		self.add_subview(b_close)
+		
+	def close_button_action(self,sender):
+		self.key_pressed('return')	
+			
 	def save_settings(self):
 		settings_str = str(self.settings) # convert dict -> str
 		settings_str = keychain.set_password('Braille','settings',settings_str)		
