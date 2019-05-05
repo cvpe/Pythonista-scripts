@@ -3,10 +3,6 @@ import ui
 
 conn = sqlite3.connect("HiraganaToKanji.db",check_same_thread=False)
 cursor = conn.cursor()
-rows = cursor.fetchall()
-for row in rows:
-	print(row)
-	break
 
 v = ui.View()
 v.frame = (0,0,400,400)
