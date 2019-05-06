@@ -1,3 +1,4 @@
+# Version 0.0
 # todo
 # - conversion:
 #		- hide les red buttons, delete, ... (view devant?)
