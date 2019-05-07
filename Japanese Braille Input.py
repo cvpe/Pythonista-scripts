@@ -24,6 +24,7 @@
 #		- setting record different for portrait and landscape
 # - ask if @shinya.ta prefers horizontal scrollview with Kanjis as buttons
 #		not sure if is ok with voiceover
+import ast
 from datetime import datetime
 import keychain
 import Image, ImageDraw		
