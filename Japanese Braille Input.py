@@ -1,5 +1,5 @@
 # Version 0.4
-# - new: add Hirhana's as 1st element in Kanji's list, in green color
+# - new: add Hirgana's as 1st element in Kanji's list, in green color
 # - new: supports Braille dots buttons 
 #				 - vertically  : default or argument v
 #				 - horizontally: argument h
