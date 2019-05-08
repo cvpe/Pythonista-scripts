@@ -426,7 +426,7 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 		else:	
 			cursor = self.tfo.offsetFromPosition_toPosition_(self.tfo.beginningOfDocument(), self.tfo.selectedTextRange().start())
 			self.tf.text = self.tf.text[:cursor] + t + self.tf.text[cursor:]
-			cursor = cursor + 1
+			cursor = cursor + len(t)
 			# set cursor
 			cursor_position = self.tfo.positionFromPosition_offset_(self.tfo.beginningOfDocument(), cursor)
 			self.tfo.selectedTextRange = self.tfo.textRangeFromPosition_toPosition_(cursor_position, cursor_position)
