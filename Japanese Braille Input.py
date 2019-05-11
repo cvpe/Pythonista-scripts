@@ -2,7 +2,7 @@
 # - bug corrected: sqlite3 operationalerror accessing HiraganaToKanji.db
 #                  was not intercepted
 # - new: cursor left and right move buttons
-# - new: support Hirgana with one/dot prefix for (han)dakuten
+# - new: support Hirgana with one-dot prefix for (han)dakuten
 # Version 0.6
 # - bug corrected: right column of vertical dots had inverted n°s
 # Version 0.5
