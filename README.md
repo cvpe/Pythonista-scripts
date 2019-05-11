@@ -24,17 +24,6 @@ To test it, you can edit and run it. Tapping anywhere in the file will show the 
 Of course, you can very easily remove this code, but I just wanted to show how we can do a lot in this little ui.View (InputAccessoryView) above the keyboard.
 23MAR2019: you can stop/restart the car by tapping it
 
-**BrailleKeyboardForTextField.py**
- - [see](https://forum.omz-software.com/topic/5584/braille-application)
- 
-**File_Picker.py**
- - file picker usable in a dialog textfield
- - displays thumbnails for images
- - 17FEB2019: add **only** parameter, True => only selectable (asked extension) files are showed
-
-**Folder_Picker**
-  - based on OMZ Script at https://gist.github.com/omz/e3433ebba20c92b63111
-  
 **DownloadGithubRawFile.py**
   - use webview to navigate until a Github **RAW** file to download in Pythonista local files
     - of course, an url can be pasted in the url TextField
@@ -44,11 +33,23 @@ Of course, you can very easily remove this code, but I just wanted to show how w
   - 08MAR2019: bug "url pasted or entered in TextField gave a crash" corrected
   - 25MAR2019: support also of gist 
   
+**File_Picker.py**
+ - file picker usable in a dialog textfield
+ - displays thumbnails for images
+ - 17FEB2019: add **only** parameter, True => only selectable (asked extension) files are showed
+
+**Folder_Picker**
+  - based on OMZ Script at https://gist.github.com/omz/e3433ebba20c92b63111
+  - [see](https://forum.omz-software
+    
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
  - store their file name in a dictionary "name->index"
  - scan all photos with Photos Objc Framework
  - get their album name and update dictionary as "name->index,album"
+ 
+**Japanese Braille Input.py**
+ - [see](https://forum.omz-software.com/topic/5584/braille-application)
 
 **contacts on map.py**
  - the script uses a function, geocodeAddressString, for converting an
