@@ -244,10 +244,10 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 		'3456|245':'0',	#
 		# ponctuation http://www.yoihari.com/tenji/tkigo.htm
 		'36':'-',				# hyphen: if end of arab digits, not displayed
-		'256':'。'	,			#
+		'256':'。',			#
 		'26':'？',				#
 		'235':'！',			#
-		'56':'、'				#
+		'56':'、',				#
 		'5':'・'					#
 		}
 		
