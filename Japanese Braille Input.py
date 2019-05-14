@@ -11,7 +11,7 @@
 #          Thus 6人 "six people" (6 nin) is written w/o hyphen'' ⠼⠋⠇⠴ ⟨6nin)
 #          but 6円 "six yen" (6 en) is written with a hyphen, ⠼⠋⠤⠋⠴ ⟨6-en⟩,
 #          because ⠼⠋⠋⠴ would be read as ⟨66n⟩."
-#  new: support kapanese punctuation of one single dots set: -。？！、・
+#  new: support Japanese punctuation of one single dots set: -。？！、・
 # Version 0.7
 # - bug corrected: sqlite3 operationalerror accessing HiraganaToKanji.db
 #                  was not intercepted
