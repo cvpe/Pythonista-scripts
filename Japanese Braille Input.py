@@ -1,3 +1,5 @@
+# https://forum.omz-software.com/topic/5584/braille-application
+#
 # Version 1.2
 # - bug: left delete during tableview does not hide scroll and ok 3 buttons
 # - new: buttons title instead of image, so VoiceOver may speach it
