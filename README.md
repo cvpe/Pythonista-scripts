@@ -109,6 +109,7 @@ Of course, you can very easily remove this code, but I just wanted to show how w
   
 **MyPickDocument.py**
   - use of UIDocumentPickerViewController to open or import an iCloud file
+  - 24MAY2019: add optional parameter to allow multiple selection
   
 **SaveInFiles.py**
 
