@@ -159,9 +159,9 @@ AVSpeechSynthesizer=ObjCClass('AVSpeechSynthesizer')
 AVSpeechSynthesisVoice=ObjCClass('AVSpeechSynthesisVoice')
 voices=AVSpeechSynthesisVoice.speechVoices()
 synthesizer=AVSpeechSynthesizer.new()
-for i in range(0,len(voices)):
-	#print(i,voices[i],voices[i].description())
-	if 'ja-JP' in str(voices[i].description()):
+for i, voice in enumerate(voices):
+	#print(i,voice,voice.description())
+	if 'ja-JP' in str(voice.description()):
 		voice_jp = i
 		break
 
