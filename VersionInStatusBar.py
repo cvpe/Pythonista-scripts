@@ -1,5 +1,6 @@
 import ui
 import objc_util
+import os
 import sys
 
 def VersionInStatusBar(version=False):	
