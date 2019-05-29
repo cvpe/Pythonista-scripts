@@ -341,18 +341,16 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 		}
 		
 		# Generate dakuten characters from their prefix/dot and dots	
-		for ele in self.Japanese_Braille.keys():
-			i = ele.find('|')
-			if i >= 0:													# ex: 5|1345			
-				prefix = ele[:i]									# ex: 5
-				k = ele[i+1:]											# ex:	1345
-				ch = self.Japanese_Braille[k]			# ex: つ
+		for ele in self.Japanese_Braille:
+			prefix, bar, k = ele.partition('|')  # ex 5, |, 1345
+			if bar:
 				if prefix == '5':
 					d = 1														# ex: 5 -> 1  
 				elif prefix == '6':
 					d = 2
 				else:
 					continue													# ex: 4
+				ch = self.Japanese_Braille[k]			# ex: つ
 				b = ch.encode('utf-8')						# ex: b'\xe3\x81\x8b'
 				n = b[:-1] + bytes([int(b[-1])+d])# ex: b'\xe3\x81\x8c'
 				c = str(n,'utf-8')								# ex: か -> が          へ -> ぺ
@@ -374,18 +372,14 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 		suppl_kanjis = 'HiraganaToKanji.txt'
 		if os.path.exists(suppl_kanjis):
 			with open(suppl_kanjis,encoding='utf-8') as fil:
-				l = fil.read()
-				self.local_kanjis = l.split('\n')
-				del l
+				self.local_kanjis = fil.read().split('\n')
 		else:
 			self.local_kanjis = []
 		
 		# get sentences as examples for Kanjis
 		# https://www.manythings.org/anki/
 		with open('SentencesEngJpn.dat',encoding='utf-8') as fil:
-			l = fil.read()
-			self.sentences = l.split('\n')
-			del l
+			self.sentences = fil.read().split('\n')
 
 		# build dots buttons but bounds not yet known in init, let some delay		
 		ui.delay(self.dimensions,0.1)
