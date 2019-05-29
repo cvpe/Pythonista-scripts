@@ -446,7 +446,7 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 			'b_conversion':'漢字',
 			'kanjis_up':'漢字アップ',
 			'kanjis_down':'漢字',
-			'kanjis_other':'その他の説明,						# add 1.6	# mod 1.7
+			'kanjis_other':'その他の説明',						# add 1.6	# mod 1.7
 			'kanjis_ok':'漢字は大丈夫'
 		}
 		self.select_text = '選択する '
