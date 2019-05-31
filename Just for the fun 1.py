@@ -16,11 +16,8 @@ class MyView(ui.View):
 
 		t = 'https://forum.omz-software.com/topic/'
 		url = clipboard.get()	
-		if url:
-			if url[:len(t)] != t:
-				url = None
-		if not url:
-			url = 'https://forum.omz-software.com/topic/3317/introduction'
+		if not url.startswith(t):
+			url = t + '3317/introduction'
 		webview.load_url(url)
 		# get scrollview of webview via its ObjectiveC object
 		self.scrollview = ObjCInstance(webview).subviews()[0].scrollView()
