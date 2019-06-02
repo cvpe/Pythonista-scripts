@@ -594,16 +594,15 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 		self.add_subview(b3)
 		
 		for sv in self.subviews:
-			if type(sv) is ui.Button:
-				bn = sv.name
-				if bn in self.buttons_titles:
-					if self.buttons_titles[bn] != '':
-						sv.title = self.buttons_titles[bn]
-						if sv.background_image:
-							sv.tint_color = (0,0,0,0)	# title color transparent so invisible
+			if isinstance(sv, ui.Button):
+				sv_title = self.buttons_titles.get(sv.name, '')
+				if sv_title:
+					sv.title = sv_title
+					if sv.background_image:
+						sv.tint_color = (0,0,0,0)	# title color transparent so invisible
 																				# but title still said by VoiceOver
-						sv.image = None
-						#sv.background_image = None
+					sv.image = None
+					#sv.background_image = None
 
 	def left_button_action(self,sender):	
 		# move cursor left in textfield
@@ -674,7 +673,8 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 		analyze(KeyboardInputView)
 
 		b = self.b_lowest_right.superview()
-		if 'uibutton' in str(b._get_objc_classname()).lower() or 'ckbkeybutton' in str(b._get_objc_classname()).lower():
+		class_name = str(b._get_objc_classname()).lower()
+		if 'uibutton' in class_name or 'ckbkeybutton' in class_name:
 			# simulate press the button	
 			UIControlEventTouchUpInside = 255
 			b.sendActionsForControlEvents_(UIControlEventTouchUpInside)
@@ -936,7 +936,7 @@ class BrailleKeyboardInputAccessoryViewForTextField(ui.View):
 	def dot_touched(self,touch):
 		xt,yt = touch.location
 		for b in self.subviews:
-			if type(b) is not ui.Button:
+			if not isinstance(b, ui.Button):
 				continue
 			if b.name[0] == 'b':	# not dots button
 				continue
