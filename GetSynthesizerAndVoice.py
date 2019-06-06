@@ -13,9 +13,8 @@ def get_synthesizer_and_voice(
     assert isinstance(language, str), (type(language), language)
     AVSpeechSynthesizer = ObjCClass("AVSpeechSynthesizer")
     AVSpeechSynthesisVoice = ObjCClass("AVSpeechSynthesisVoice")
-    voices = AVSpeechSynthesisVoice.speechVoices()
     synthesizer = AVSpeechSynthesizer.new()
-    for voice in voices:
+    for voice in AVSpeechSynthesisVoice.speechVoices():
         # print(voice, voice.description())
         if language in str(voice.description()):
             return synthesizer, voice
