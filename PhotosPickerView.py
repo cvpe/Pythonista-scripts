@@ -13,12 +13,10 @@ def numberOfComponentsInPickerView_(self, cmd, picker_view):
     return 1
 
 def rowSize_forComponent_(self, cmd, picker_view, component):
-    UIPickerView = ObjCInstance(picker_view)
-    return UIPickerView.myRowWidth
+    return ObjCInstance(picker_view).myRowWidth
 
 def pickerView_rowHeightForComponent_(self, cmd, picker_view, component):
-    UIPickerView = ObjCInstance(picker_view)
-    return UIPickerView.myRowHeight
+    return ObjCInstance(picker_view).myRowHeight
 
 def pickerView_didSelectRow_inComponent_(self, cmd, picker_view, row, component):
     #print(row)
@@ -73,5 +71,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
