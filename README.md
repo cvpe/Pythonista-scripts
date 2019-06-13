@@ -107,6 +107,9 @@ Of course, you can very easily remove this code, but I just wanted to show how w
 **My_Apps_Button_in_TitleBar.py**
   - menu of Pythonista scripts displayed by a user button in the TitleBar
   
+**PhotosPickerView.py**
+  - see your Photos in an UIPickerView
+  
 **MyPickDocument.py**
   - use of UIDocumentPickerViewController to open or import an iCloud file
   - 24MAY2019: add optional parameter to allow multiple selection
