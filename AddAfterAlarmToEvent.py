@@ -51,7 +51,7 @@ class MyView(ui.View):
 		
 		# Label: titre
 		titlbl = ui.Label(name='titlbl')
-		titlbl.width = 
+		titlbl.width = w - end_button.width - dat_button.width - 3*10
 		titlbl.height = 32
 		titlbl.frame = (10, end_button.y,
 				w - end_button.width - dat_button.width - 3*10, 32)
