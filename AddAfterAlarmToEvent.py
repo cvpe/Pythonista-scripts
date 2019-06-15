@@ -96,9 +96,9 @@ class MyView(ui.View):
 		dateFormat = ObjCClass('NSDateFormatter').alloc().init()
 		dateFormat.setDateFormat_('yyyyMMdd HH:mm')
 		date1 = dateFormat.dateFromString_(d1+' 00:01') 
-		print date1
+		print(date1)
 		date2 = dateFormat.dateFromString_(d2+' 23:59') 
-		print date2
+		print(date2)
 		
 		predicate = store.predicateForEventsWithStartDate_endDate_calendars_(date1, date2, None)
 		self.events = store.eventsMatchingPredicate_(predicate)
