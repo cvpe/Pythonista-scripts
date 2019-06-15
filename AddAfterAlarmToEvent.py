@@ -64,7 +64,7 @@ class MyView(ui.View):
 		# TableView: Events
 		evttab = ui.TableView()
 		evttab.name = 'evttab'
-		evttab.frame = (10, titlbl.y + titlbl.height + 10
+		evttab.frame = (10, titlbl.y + titlbl.height + 10,
 				self.width - 20, self.height - evttab.y - 10)
 		evttab.row_height = 20
 		evttab.border_color = 'black'
