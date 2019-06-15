@@ -1,7 +1,10 @@
 # coding: utf-8
+# ok en Python 3 
+
 # Add Alarm After Begin to Calendar Event 
 #           ===========
 import ui
+import sys
 import console
 import dialogs
 import time
@@ -11,7 +14,7 @@ import webbrowser
 
 class MyView(ui.View):
 	
-	def __init__(self, w, h):
+	def __init__(self,w,h):
 		global store
 		self.width = w
 		self.height = h
@@ -35,8 +38,12 @@ class MyView(ui.View):
 		end_button = ui.Button(name='end_button')
 		#end_button.border_color = 'black'
 		#end_button.border_width = 1
-		end_button.frame = (10, 20, 32, 32)
+		end_button.width = 32
+		end_button.height = 32
+		end_button.x = 10
+		end_button.y = 20
 		end_button.background_image = ui.Image.named('iob:close_circled_256')
+		end_button.title = ''
 		end_button.action = self.end_action
 		self.add_subview(end_button)
 
@@ -44,8 +51,12 @@ class MyView(ui.View):
 		dat_button = ui.Button(name='dat_button')
 		#dat_button.border_color = 'black'
 		#dat_button.border_width = 1
-		dat_button.frame = (self.width-dat_button.width-10, end_button.y, 32, 32)
+		dat_button.width = 32
+		dat_button.height = 32
+		dat_button.x = self.width-dat_button.width-10
+		dat_button.y = end_button.y
 		dat_button.background_image = ui.Image.named('iob:calendar_256')
+		dat_button.title = ''
 		dat_button.action = self.dat_action
 		self.add_subview(dat_button)
 		
@@ -53,8 +64,8 @@ class MyView(ui.View):
 		titlbl = ui.Label(name='titlbl')
 		titlbl.width = w - end_button.width - dat_button.width - 3*10
 		titlbl.height = 32
-		titlbl.frame = (10, end_button.y,
-				w - end_button.width - dat_button.width - 3*10, 32)
+		titlbl.x = 10
+		titlbl.y = end_button.y
 		titlbl.text = 'Add Alarm After Begin to Calendar Event'
 		titlbl.alignment = ui.ALIGN_CENTER
 		titlbl.font= ('Courier-Bold',20)
@@ -64,15 +75,18 @@ class MyView(ui.View):
 		# TableView: Events
 		evttab = ui.TableView()
 		evttab.name = 'evttab'
-		evttab.frame = (10, titlbl.y + titlbl.height + 10,
-				self.width - 20, self.height - evttab.y - 10)
+		evttab.x = 10
+		evttab.y = titlbl.y + titlbl.height + 10
+		evttab.width = self.width - 20
+		evttab.height = self.height - evttab.y - 10
 		evttab.row_height = 20
 		evttab.border_color = 'black'
 		evttab.border_width = 1
 		evttab.delegate = self
 		self.add_subview(evttab)
-		
-	def dat_action(self, sender):
+
+	@ui.in_background								
+	def dat_action(self,sender):
 		global store
 		
 		# Ask begin and end date	
@@ -111,17 +125,26 @@ class MyView(ui.View):
 			strdt = event.startDate()
 			enddt = event.endDate()
 			dur = enddt.timeIntervalSinceDate_(strdt)
-			dur = dur / 60 # minutes
+			dur = dur/60 # minutes
 			days,remain = divmod(dur, 24*60)
-			hours,mins = divmod(remain, 60)
-			durf = '{:02d}j '.format(int(days)) if days else '    '
-			durf += '{:02d}h '.format(int(hours)) if hours else '    '
-			durf += '{:02d}m '.format(int(mins)) if mins else '    '
-			txt = '{} {}: {}'.format(dateFormat.stringFromDate_(strdt), durf, event.title())
+			hours,mins = divmod(remain,60)
+			if days == 0:
+				durf = '    '
+			else:
+				durf = '{:02d}j '.format(int(days))
+			if hours == 0:
+				durf = durf + '    '
+			else:
+				durf = durf + '{:02d}h '.format(int(hours))
+			if mins == 0:
+				durf = durf + '    '
+			else:
+				durf = durf + '{:02d}m '.format(int(mins))
+			txt = str(dateFormat.stringFromDate_(strdt) ) + ' ' + durf + ': ' + str(event.title())
 			evttabs.append(txt)
 		
 		evtlst = ui.ListDataSource(items=evttabs)
-		evtlst.font = ('Courier', 15)
+		evtlst.font= ('Courier',15)
 		evtlst.text_color = 'black'
 		self['evttab'].data_source = evtlst
 		self['evttab'].reload()
@@ -132,7 +155,7 @@ class MyView(ui.View):
 	# File "/var/mobile/Containers/Bundle/Application/CEBD1281-94B0-4EEC-BA60-D9599A5873CD/Pythonista.app/Frameworks/PythonistaKit.framework/pylib/site-packages/dialogs.py", line 365, in done_action
 	# self.container_view.close()
 	# AttributeError: 'NoneType' object has no attribute 'close
-	# Here is the fix. The problem is that dialogs produces a model view, and Python needs to know that, or bad things happen. This is done by using the decorator @ui.inbackground.
+	# Here is the fix. The problem is that dialogs produces a model view, and Python needs to know that, or bad things happen. This is done by using the decorator @ui.in_background.
 
 	@ui.in_background	
 	def tableview_did_select(self, tableview, section, row):
@@ -140,61 +163,73 @@ class MyView(ui.View):
 		# Called when a row was selected
 		event = self.events_array[row]
 		alarms = event.alarms()
+		#print(alarms)
+		#print(event.recurrenceRule())
 		fields = []
-		if alarms:
+		if alarms != None:
 			i = 1
 			for alarm in alarms:
-				al = int(alarm.relativeOffset() / 60)
+				al = int(alarm.relativeOffset()/60)
 				fields.append({'title':'n° '+str(i),'key':'alarm'+str(i),'type':'number','value':str(al)})
-				i += 1
+				i = i + 1
 		else:
 			i = 1
 			
 		# add a blank alarm for a new one
 		n = i
 		al = 0
-		fields.append({'title': 'n°' + str(n),
-				'key': 'alarm' + str(n),
-				'type': 'number',
-				'value': str(al)})
-		als = dialogs.form_dialog(title='Alarmes (en minutes)', done_button_title='ok',
-						fields=fields, sections=None)
+		fields.append({'title':'n°'+str(n),'key':'alarm'+str(n),'type':'number','value':str(al)})
+		als = dialogs.form_dialog(title='Alarmes (en minutes)',done_button_title='ok',fields=fields, sections=None)
 		modif = False
-		if als:
+		if als != None:
 			# Done pressed
 			i = 1
 			while i <= n:
-				al = int(als['alarm' + str(i)]) * 60
-				alold = int(alarm.relativeOffset() / 60) if i < n else 0
+				w = als['alarm'+str(i)]
+				if w == '':
+					al = 0
+				else:
+					al = int(w)*60
+				if i < n:
+					alold = int(alarm.relativeOffset()/60)
+				else:
+					alold = 0
 				if al != alold:
 					modif = True
 					if i < n:
 						# remove alarm
 						event.removeAlarm_(alarms[i-1])
 					
-					if al:	
+					if al != 0:	
 						# add non zero alarm
 						alarm = ObjCClass('EKAlarm').alarmWithRelativeOffset_(al)
 						event.addAlarm_(alarm)
-				i += 1
+						#recurrencerule = ObjCClass('EKRecurrenceRule').alloc()
+						#print(dir(recurrencerule))
+						#recurrencerule.initRecurrenceWithFrequency_interval_end_(0,1,None)
+						#event.addRecurrenceRule_(recurrencerule)		
+				i = i + 1
 			
 			if modif:
-				span = 0  # assume only this instance
 				if event.hasRecurrenceRules():
-					but = console.alert('Event is recurrent', 'modify this instance only?',
-								'Yes', 'No', hide_cancel_button=True)
-					if but != 1:
-						span = 1  # all instances
+					but = console.alert('Event is recurrent','modify this instance only?','Yes','No',hide_cancel_button=True)
+					if but == 1:
+						span = 0 # only this instance
+					else:
+						span = 1 # all instances
+				else:
+					span = 0 # only this instance
 				# store modified event in calendar
-				store.saveEvent_span_error_(event, span, None) 
+				store.saveEvent_span_error_(event,span,None) 
 	
 				# store modified in memory, reason why we use a normal array instead of a NSarray
 				self.events_array[row] = event
 					
-	def end_action(self, sender):
+	def end_action(self,sender):
 		self.close()
-		# Back to home screen
-		webbrowser.open('launcher://crash')
+		if 'from_launcher' in sys.argv:
+			# Back to home screen
+			webbrowser.open('launcher://crash')
 				
 	def will_close(self):
 		pass
@@ -205,5 +240,5 @@ console.clear()
 # Hide script
 w, h = ui.get_screen_size()
 back = MyView(w,h)
-back.background_color = 'white'
-back.present('full_screen', hide_title_bar=True)
+back.background_color='white'
+back.present('full_screen',hide_title_bar=True)
