@@ -1,6 +1,6 @@
 # todo
 # - always turn in the same direction
-# - several spons before end
+# - several spins before end
 # - simulate swipe has better animation
 
 from objc_util import create_objc_class, ObjCClass, ObjCInstance
