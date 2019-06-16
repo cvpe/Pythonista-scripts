@@ -129,8 +129,7 @@ def main():
             l.append(r)
             # force roll always in same direction
             s = mv['pv']._picker_view.selectedRowInComponent_(i)
-            r = (max(1,int(s/len(assets))-1))*len(assets) + r				# mod V0.1
-            l.append(r)															# test only			# add V0.1
+            r = (max(1,int(s/len(assets))-1))*len(assets) + r				# mod V0.1														# test only			# add V0.1
             mv['pv']._picker_view.selectRow_inComponent_animated_(r,i,True)
         if sender == 'init':
            return
