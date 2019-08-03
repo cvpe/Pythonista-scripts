@@ -50,6 +50,11 @@ Of course, you can very easily remove this code, but I just wanted to show how w
  
 **Japanese Braille Input.py**
  - [see](https://forum.omz-software.com/topic/5584/braille-application)
+ 
+**Juxtaposition de Photos.py**
+ - pictures jointer
+ - still in development, do not ask support, do not put issues please
+ - crashes very often
 
 **contacts on map.py**
  - the script uses a function, geocodeAddressString, for converting an
