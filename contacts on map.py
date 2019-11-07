@@ -128,7 +128,7 @@ methods = [mapView_viewForAnnotation_]
 protocols = ['MKMapViewDelegate']
 try:
 	MyMapViewDelegate = ObjCClass('MyMapViewDelegate')
-except:
+except Exception as e:
 	MyMapViewDelegate = create_objc_class('MyMapViewDelegate', methods=methods, protocols=protocols)	
 	#MyMapViewDelegate = create_objc_class('MyMapViewDelegate', NSObject, methods=methods, protocols=protocols)	
 
