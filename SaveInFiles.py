@@ -22,7 +22,7 @@ methods = [documentPicker_didPickDocumentsAtURLs_,documentPickerWasCancelled_]
 protocols = ['UIDocumentPickerDelegate']
 try:
 		MyUIDocumentPickerViewControllerDelegate = ObjCClass('MyUIDocumentPickerViewControllerDelegate')
-except:
+except Exception as e:
 	MyUIDocumentPickerViewControllerDelegate = create_objc_class('MyUIDocumentPickerViewControllerDelegate', methods=methods, protocols=protocols)
 #===================== delegate of UIDocumentPickerViewController: end
 
