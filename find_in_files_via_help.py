@@ -60,7 +60,7 @@ def initWithURL_(_self,_sel, _url):
 	return rtnval.ptr
 
 def setSearchResults_(_self,_sel,_search_results):
-	from objc_util import ObjCInstance
+	from objc_util import ObjCInstance, ns
 	import os
 	global search_term
 	self=ObjCInstance(_self)	# PA2QuickHelpViewController
