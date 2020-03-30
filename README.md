@@ -33,6 +33,14 @@ Of course, you can very easily remove this code, but I just wanted to show how w
   - 08MAR2019: bug "url pasted or entered in TextField gave a crash" corrected
   - 25MAR2019: support also of gist 
   
+**find_in_files_via_help.py**
+  - Little (not quick but still dirty) script to be executed once by Pythonista restart (fi in your pythonista_startup.py).
+  - When you tap help in the popup menu of a selected text
+  - After some seconds (function of your iDevice, the number and size of your scripts), you get  a list of scripts containing the selected text (case insensitive)
+  - If you select a script, you'll get, like for Pythonista help, a small (webview) window displaying the script as an html with Python syntax highlighting, where occurrences of selected text are also highlighted (in yellow)
+  - If you search has also results in Pythonista help, you'll see both results in the list
+  - The script imports @jonB's [swizzle module](https://github.com/jsbain/objc_hacks/blob/master/swizzle.py)
+  
 **File_Picker.py**
  - file picker usable in a dialog textfield
  - displays thumbnails for images
