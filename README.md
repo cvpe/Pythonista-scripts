@@ -34,7 +34,7 @@ Of course, you can very easily remove this code, but I just wanted to show how w
   - 25MAR2019: support also of gist 
   
 **find_in_files_via_help.py**
-  - Little (not quick but still dirty) script to be executed once by Pythonista restart (fi in your pythonista_startup.py).
+  - Little script to be executed once by Pythonista restart (fi in your pythonista_startup.py).
   - When you tap help in the popup menu of a selected text
   - After some seconds (function of your iDevice, the number and size of your scripts), you get  a list of scripts containing the selected text (case insensitive)
   - If you select a script, you'll get, like for Pythonista help, a small (webview) window displaying the script as an html with Python syntax highlighting, where occurrences of selected text are also highlighted (in yellow)
