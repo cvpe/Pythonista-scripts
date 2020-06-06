@@ -104,7 +104,7 @@ class MyView(ui.View):
 		b_right.border_width = 1
 		def b_right_action(sender):
 			keyboard.move_cursor(+1)
-		b_right.action = b_right_actio
+		b_right.action = b_right_action
 		self.add_subview(b_right)
 
 		x = x0 - d/2
