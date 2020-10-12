@@ -159,8 +159,11 @@ Parameters are:
  - see https://forum.omz-software.com/topic/4951/real-numeric-pad-on-ipad
  - 13JAN2019: custom textfield_did_change not called, I added an optional parameter textfield_did_change=function to call 
  - 17APR2019: added optional parameter to rotate, at random between -10° and +10°, each key
+ - 12OCT2020: added support of SFsymbols as icon on keyboard keys
  
  ![](https://i.imgur.com/KO1AxYw.jpg)
+ 
+ ![](https://i.imgur.com/qVaklcR.jpg)
  
 **test speech via objc.py**
 
