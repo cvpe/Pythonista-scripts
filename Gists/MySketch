@@ -111,6 +111,11 @@ class SketchView (ui.View):
 		sl.value = (self.path_width-1)/10
 		h = self.path_width
 		l.frame = (5,80,190,h)
+		sl.background_color = 'white'
+		l.background_color = self.path_color
+		if l.background_color == sl.background_color:
+			l.border_width = 1
+			l.border_color = 'lightgray'
 		l.background_color = self.path_color
 		sl.add_subview(l)
 		sl.present('sheet',hide_title_bar=True)
