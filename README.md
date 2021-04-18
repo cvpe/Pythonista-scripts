@@ -51,7 +51,8 @@ Of course, you can very easily remove this code, but I just wanted to show how w
   - [see](https://forum.omz-software
 
 **GoogleDriveBrowser**
-script to edit Google Drive files like if they were local Pythonista files.
+
+  script to edit Google Drive files like if they were local Pythonista files.
 
 It assumes that you have installed [pydrive](https://github.com/googleworkspace/PyDrive/tree/master/pydrive) module and that you have defined a Google Drive API authorized user, read carefully [this topic](https://forum.omz-software.com/topic/5076/google-drive-support).
 
