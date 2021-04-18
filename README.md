@@ -49,6 +49,55 @@ Of course, you can very easily remove this code, but I just wanted to show how w
 **Folder_Picker**
   - based on OMZ Script at https://gist.github.com/omz/e3433ebba20c92b63111
   - [see](https://forum.omz-software
+
+**GoogleDriveBrowser**
+script to edit Google Drive files like if they were local Pythonista files.
+
+It assumes that you have installed [pydrive](https://github.com/googleworkspace/PyDrive/tree/master/pydrive) module and that you have defined a Google Drive API authorized user, read carefully [this topic](https://forum.omz-software.com/topic/5076/google-drive-support).
+
+Be sure that the script can be improved about Python's way, functionalities and quality (surely not bug free), but it is "à prendre ou à laisser" (as is).
+
+You could define this script as Pythonista tool but it is not mandatory and it can be run as usual.
+
+The script is based on @omz's [File Picker](https://gist.github.com/omz/e3433ebba20c92b63111).
+
+Script is here [GoogleDriveBrowser](https://github.com/cvpe/Pythonista-scripts/blob/master/GoogleDriveBrowser.py)
+
+When you have installed this script on your iDevice, you have to modify the line
+```
+	google_drive_auth_path = os.path.expanduser('~/Documents/MesTools/settings.yaml')
+```
+pointing to your Google Drive authorization file.
+
+Of course, you can also modify the title and the size of your view.
+```
+		self.table_view.frame = (0, 0, 700,800)
+		.
+		.
+		.
+		self.view.name = 'My Google Drive'
+```
+And you can also modify the icon displayed in function of the file type.
+Also, actually, the program only allows to edit .py files but it is possible that it could also work with other ones (txt?, html?), but up to you to test them.
+
+What the program offers?
+- first, it presents a view of your Google Drive root folders and files.
+- you can 
+  - expand a folder by tapping its right arrow icon
+    nb: this process may be very slow if you have a lot of files
+    --- example, some seconds for 200 files on my iPad 2020
+  - collapse an expanded folder by tapping its down arrow icon
+  - edit a not grayed file name (actually .py only),
+    in this case, the program 
+    - downloads the Google Drive file in the same folder as the script,
+      with a name of "x...x (on GoogleDrive).eee", where
+      - x...x is the original file name
+      - eee is its extension
+    - loads this local file in the same tab as the program (if you run it) or in 
+      an existing tab if you launch it as a tool (not tested)
+  - save the local file on Google Drive by checking file modification each second 
+    (up to you to modify it if too slow) and when the tab is closed.
+
     
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
