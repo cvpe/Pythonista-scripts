@@ -99,7 +99,7 @@ What the program offers?
   - save the local file on Google Drive by checking file modification each second 
     (up to you to modify it if too slow) and when the tab is closed.
     
-  - 23APR2021: correction "erroneously needed appex module"
+ - 23APR2021: correction "erroneously needed appex module"
 
     
 **IdentifyAlbumOfPhotos.py**
