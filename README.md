@@ -101,6 +101,37 @@ What the program offers?
     
  - 23APR2021: correction "erroneously needed appex module"
 
+**GoogleDrive_in_Script_Library**
+
+  script to show a Google Drive button in the standard left Script Library.
+  
+![](https://i.imgur.com/5CuX24k.jpg) 
+
+Be sure that the script can be improved about Python's way, functionalities and quality (surely not bug free), but it is "à prendre ou à laisser" (as is).
+
+You could define this script as a Pythonista tool but it is not mandatory and it can be run as usual, but when you run it, the left Script Library has to be at its top level. I've tried to call it in the Pythonista startup, but without success, probably because at this stage, the left Script Library is not yet built.
+
+For the same reason, I only guess, you have to rerun it if Pythonista goes in background, either because you swiped to another app, either because you closed your device, or for any other reason.
+
+Script is here [GoogleDrive_in_Script_Library](https://github.com/cvpe/Pythonista-scripts/blob/master/GoogleDrive_in_Script_Library.py)
+
+You need also to install [GoogleDrive.png](https://github.com/cvpe/Pythonista-scripts/blob/master/Google%20Drive.png) in the same directory as the script,
+site-packages is adviced.
+
+![](https://i.imgur.com/0p16c1J.jpg) 
+
+A last needed operation is to define the GoogleDrive.png as **FAVORITE** in the Script Library, because the new Google Drive button will replace this favorite file,
+not very professional, I agree, but I only do what I can.
+
+Of course, as this script starts **GoogleDriveBrowser**, it has also to be installed, either in the same directory, either in site-packages.
+Thus the Google Drive starts a modal view for the Google Drive files tree, and not in the left Script Library, even if it should be possible for a skilled guy 🙂
+
+Additionally, if you have defined as external files,
+- "On my iPad/iPhone", it is normally shown as "File Provider Storage" in the Script Library, but my script will replace this by "On my iPad/iPhone"
+- "iCloud Drive", it is normally shown as "com~apple~CloudDocs" in the Script Library, but my script will replace this by "iCloud Drive"
+
+![](https://i.imgur.com/26bgsR5.jpg) 
+
     
 **IdentifyAlbumOfPhotos.py**
  - scan all photos with photos module
