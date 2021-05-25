@@ -1,7 +1,7 @@
 # coding: utf-8
 import editor
 import functools
-from   objc_util import ObjCInstance, ObjCClass
+from   objc_util import *
 from   operator import attrgetter
 import os
 import sys
