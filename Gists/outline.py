@@ -457,7 +457,7 @@ class Outliner(ui.View):
 		fields.append({'title':'same outline option', 'type':'text', 'value':self.same_outline_option, 'key':'segmented2', 'segments':['yes', 'no']})
 		fields.append({'title':'same outline invisible', 'type':'text', 'value':self.same_outline_invisible, 'key':'segmented3', 'segments':['yes', 'no']})
 		f = my_form_dialog('settings', fields=fields)		
-		print(f)
+		#print(f)
 		if not f:
 			# canceled
 			return
