@@ -2327,7 +2327,7 @@ class Outliner(ui.View):
 		y = rect.origin.y
 		h = rect.size.height
 
-		if not isinf(y):
+		if not isinf(y) and self.tv.content_offset[1] > 0:
 			self.tv.content_offset = (0,y)
 
 	def int_to_roman(self,n):
