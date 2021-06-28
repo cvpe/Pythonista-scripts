@@ -169,7 +169,7 @@ import unicodedata
 Version = 'V00.27'
 Versions = '''
 Version V00.27
-  - correction of bug "auto-save parameter incorrect in .content file"
+  - correction of bug "auto-save parameter incorrect in .prm file"
   - temporary workaround to scrolling problem: when typing in a line, automatic 
     scroll so this line is at top of screen and you don't have this annoying
     scroll at each typed character. But this does not work each time. Weird
