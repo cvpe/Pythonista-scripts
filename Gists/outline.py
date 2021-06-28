@@ -770,6 +770,9 @@ class Outliner(ui.View):
 		if 'checkboxes' not in self.prms:
 			self.prms['checkboxes'] = 'yes'
 		self.checkboxes = self.prms['checkboxes']
+		# temporary protection vs invalid data in .prm
+		if 'auto_save' in self.prms:
+			del self.prms['auto_save']
 		if 'auto-save' not in self.prms:
 			self.prms['auto-save'] = 'no'
 		else:
