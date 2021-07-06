@@ -2396,7 +2396,7 @@ class Outliner(ui.View):
 				b = ui.Button()
 				b.title = act
 				ib = b.title.find(' ')
-				if 1==0:#ib >= 0:
+				if ib >= 0:
 					# split title in two lines
 					b.title = b.title[:ib] + '\n' + b.title[ib+1:] # 1st blank only
 					for sv in ObjCInstance(b).subviews(): 
