@@ -149,7 +149,7 @@ Version = 'V00.58'
 Versions = '''
 Version V00.58
   - correction of bug "some typing, like left delete, give error 'IndexError: string
-    index out of range' when saving for undo""
+    index out of range' when saving for undo"
   - remove option 'show all' of eye button, same process as 'expand all'
 Version V00.57
   - correction of bug "selecting option in eye submenu gives error
