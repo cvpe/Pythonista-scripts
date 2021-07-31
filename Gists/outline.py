@@ -145,7 +145,7 @@ import time
 import ui
 import unicodedata
 
-Version = 'V00.59'
+Version = 'V00.58'
 Versions = '''
 Version V00.58
   - correction of bug "some typing, like left delete, give error 'IndexError: string
