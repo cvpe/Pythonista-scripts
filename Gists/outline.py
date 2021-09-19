@@ -129,7 +129,7 @@ try:
 	if not appex.is_running_extension():
 		import swizzle
 	Version = 'V01.02'
-	with open('outline.versionsx', mode='rt', encoding='utf-8', errors="surrogateescape") as fil:	
+	with open('outline.versions', mode='rt', encoding='utf-8', errors="surrogateescape") as fil:	
 		Versions = fil.read()
 except:
 	console.alert('Not all imported modules exist', 'see list in console', 'ok', hide_cancel_button=True)
