@@ -1,0 +1,813 @@
+Version V01.16
+  - correction of bug "paste lines of same level gave bad numbering results"
+  - correction of bug "popup option paste crashes if no dates defined 
+    in copied lines"
+Version V01.15
+  - when copy selected rows, outlines and texts are also copied in standard
+    IOS PasteBoard for eventual paste in another app
+  - correction of bug "left title of horizontal popup does not show the tapped 
+    outline but the text of another line, even from a previous file"
+Version V01.14
+  - correction of bug "title of popup menu was 'outline for xxx' where xxx
+    was not the tapped outline but the text of an eventual copied row, same
+    as 'paste xxx...'"
+Version V01.13
+  - gray square emoji used for outline without checkbox due to black background
+Version V01.12
+  - square emoji used for outline without checkbox and aligning texts
+Version V01.11
+  - outline text in event notes for Apple Watch will contain
+    - clock emoji for unchecked outline with due date already set
+    - bullet for outline without check box
+Version V01.10
+  - outline text in event notes for Apple Watch will contain emoji for (un)checkbox
+Version V01.09
+  - check and ask to automatically install new version if availble
+Version V01.08
+  - correction of bug "eventIdentifier not shared cross devices for outline event"
+Version V01.07
+  - correction of bug "when automatic event was already existing, 
+    updating the outline did not update the event. Only add was ok"
+Version V01.06
+  - add/update calendar event at each outline file save, with
+    - calendar = Outline
+    - start/end date = 20220101 01:01
+    - title = outline file name
+    - notes = outline text
+    nb: to be used on Apple Watch via shortcuts
+Version V01.05
+  - automatic download of needed modules 
+Version V01.04
+  - correction of bug "keyboard was disappearing after an enter 
+    to create a new outline row"
+Version V01.03
+  - remove sharing of one InputAccessoryView (set V01.01) which prevent keys of
+    keyboard extra row to work
+Version V01.02
+  - check if all imported modules exist and, if not, print their list
+    and url's where to find them
+Version V01.01
+  - use only one InputAccessoryView and share it for TextView of each row,
+    adviced by @jonB to gain memory
+Version V01.00
+  - add some traces in tableview_cellfor_row at place supposed to be crash origin
+Version V00.99
+  - move versions descriptions from script to outline.versions file
+Version V00.98
+  - trace each called function in outline.trace, without buffering
+Version V00.97
+  - correction of bug "PY3 = sys.version_info[0] >= 3 NameError: name 'sys'
+    is not defined"
+Version V00.96
+  - deactivation of the whole undo/redo process for testing if it could be 
+    the origin of crashes 
+    nb: it could not be a vital functionality as it did not work correctly
+Version V00.95
+  - support shared .png, .heic images
+  - when searching files containing a text, selecting a file will simulate
+    that user has used the magnifying glass to search the text in the open file
+Version V00.94
+  - if shared url contains "?", take only in account the part before this "?"
+    to check if the url points to an image (http://.......xx.jpg?xxxxxx)
+Version V00.93
+  - support shared url 
+  - support special characters
+    nb: if characters still generate an error, they are automatically replaced
+        by correct ones, using errors="surrogateescape" in open (see Python doc)
+  - support shared image
+    nb: - image added as medium, left
+        - image stored as IMG_paste_yyyymmdd_hhmmss.JPG in current path
+        - tested with photo shared (program receives an image)
+        - safari shares images via their url, not the image it-self
+        - if url ends with .jpg, .jpeg, program downloads the file and
+          process as a shared image
+Version V00.92
+  - in appex mode, after saving the appended file, save its new name in 
+    outline.prm so when running outline, we will get the new file as last one
+  - correction of bug "the box for the magnifying glass search is cutoff at the top
+    by the menu bar (on iPad in Landscape mode)"
+Version V00.91
+  - support run in appex mode as share of text to add at end of an outline
+    1st argument needs to be an outline file
+  - support search files containing specified text
+    - new button in Files menu
+    - entering text
+    - search files containing text in current path
+    - shows a list of files
+    - open selected file
+  - correction of bug "keyboard icon was erroneously forced as a square"
+  - correction of bug "setting '1st level has outline' switch did not work on iPad"
+Version V00.90
+  - support parametrization of supported keys combinations of external keyboard
+    - use keyboard button in settings window
+    - gray actions have a configured keys combination
+    - swipe left an action and confirm 'disable' to remove it from configured
+      combinations
+    - associating the same combination for two actions is not allowed,
+      when you try, the selected modifier/key will blink before to be unselected
+    - supported actions (until now):
+      - promote (cursor has to be on a text)
+      - demote (cursor has to be on a text)
+      - font attributes (cursor has to be on a text)	
+      - set due date (cursor has to be on a text)
+      - collapse all
+      - expand all
+Version V00.89
+  - identify outlines of which due date is set by a light green background
+  - outline no more stored in calendar event title, only file name and text
+  - delete eventual calendar event of all outlines deleted by 'delete with children'
+  - delete eventual calendar event of all outlines deleted by 'delete/cut selected'
+  - add eventual calendar event of all outlines added'by 'paste'
+    nb: events are added/deleted without any feedback because could be multiple
+  - correction of bug "error if action delete/cut/copy but no outline selected"
+Version V00.88
+  - correction of bug "short long press without moving the finger sometimes
+    gives AttributeError: 'Outliner' object has no attribute 'found_redline'"
+Version V00.87
+  - support delete/cut/copy/paste 
+    - new button "select" in top menu
+      - shield protecting top menu
+      - redisplay all rows with selection button hiding checkbox
+        and disabling hide-children-button/outline/text/image
+      - display a popup menu with delete/cut/copy/cancel options
+    - selection button filled in red if selected, yellow if unselected
+    - for each (un)selected outline, children are automatically (un)selected
+    - if copy/cut option, save selected lines in a file outline.clipboard
+      - save level/outline/text/dates/font-attributes 
+        but not eventual due date calendar event identifier and hidden flag
+    - delete/cut process
+    - add option paste in general popup menu of an outline
+    - paste the content of the file outline.clipboard with automatic renumbering
+      nb: the file is not removed and could be pasted several times
+  - horizontal popup menu (only available on iPad) becomes an ui.ScrollView, 
+    horizontally scrollable, so all options are reachable, even if in split view,
+    or if too much options to be all visible
+Version V00.86
+  - new setting for "external keyboard modifier"
+    - 'no' if no external keyboard used
+    - Alt or Cmd or Ctrl or Shift choice
+    nb: in case of modification, the user is warned that he has to restart the 
+        program
+  - correction of bug "error when unsetting a due date created before events 
+    process"
+  - correction of bug "error 'NameError: name error is not defined' when removing
+    not existing event"
+  - correction of bug "when setting an outline as complete  (checkbox), an 'error'
+    alert was displayed even if the event deletion has worked"
+Version V00.85
+  - added functionalities to Calendar event at due date
+    - at start, program will check if Pythonista is authorized to access Calendars
+      and there is a calendar named "Outline". If no, user will get an error message
+      asking him to run Pythonista with argument "grant_access_to_calendar"
+    - file save forced immediately after calendar event add/delete/update
+    - add/delete/update an event will give a feedback: success or error
+    - set an outline as complete removes the eventual associated event
+    - unset a due date removes the associated event
+    - change a due date updates the associated event (not delete + add)
+    - allow create due date event even if date is already in the past
+Version V00.84
+  - support Command/right and Command/Left on external keyboard to generate 
+    promote/demote on edited outline text, using @zrzka Blackmamba module,
+    see https://blackmamba.readthedocs.io/en/stable/about.html
+    this needs
+      1) installation of Blackmamba in site_packages-3, via typing in console:
+         import requests as r; exec(r.get('http://bit.ly/get-blackmamba').text)
+      2) some modification of site_packages/pythonista_startup.py: at end, add lines
+         import blackmamba
+         import blackmamba.log as blackmamba_log
+         # Default value is INFO. Use ERROR if you'd like to make Black
+         # Mamba quiet. Only errors will be printed.
+         blackmamba_log.set_level(blackmamba_log.INFO)
+         #blackmamba.main()
+      3) restart Pythonista
+  - when you set a due date, script will generate an event in a Calendar 
+    which will alert you at due date/time, even if Pythonista is not running,
+    on all your devices that share the same calendar
+    - event title includes file name, outline, first 2o characters of text
+    - notes include url to start program with file and full text
+    - calendar is named "Outline"
+      - an error message is displayed if calendar does not exist
+    - due date has to be later than date/time when you set it
+    - event if immediately written, even if save would not be done
+    - not yet programmed: event should be removed if
+      - you refuse the save
+    - will not be programmed (@ihf confirmation): event should be removed if
+      - you unset due date
+      - you change due date
+      - some time after due date is reached
+        - script, at start, will scan the entire calendar to find and check events
+      - you remove the outline row
+  - sometimes, crash because keyboard_frame_did_change called before tableview was
+    created
+Version V00.83
+  - if 1st argument of program is the prefix of an outline file, program
+    opens outline with highest file name beginning with this prefix + '_20'
+    and ends with '.outline'
+Version V00.82
+  - correction of bug "AttributeError: 'Outliner' object has no attribute 
+    'dates_sort_mode' when view dates is selected"
+  - new button to unset due date, above datepicker it-self
+  - remove notifications process, not usable because impossible to send
+    a notification to anoter device
+Version V00.81
+  - when you set a due date, script will generate a system local notification
+    which will alert you at due date/time, even if Pythonista is not running.
+    nb: - a default sound is played 
+        - if you tap the notification, Pythonista will start and run this script
+        - notification is created even if file is not saved after due date setting 
+        - notification is only sent on the device where you have set the due date
+        - if the outline contains an image, it will be displayed in the notification
+Version V00.80
+  - correction of bug "recompute frame of popover shield if device rotated
+    while shield is active"
+  - on an iPhone in landscape mode, attributes popup is too high, change View
+    into a ScrollView so each attribute is reachable even if device is rotated
+    while script is running"
+Version V00.79
+  - correction of bug "if open outline was displayed with dates, and you create
+    a new or open another one, the title of dates was still displayed while dates
+    them-selves were not shown"
+  - correction of bug "view dates crashes with error on 'dates_sort_mode'"
+Version V00.78
+  - correction of bug "add character after portion with attributes, new character
+    has same attributes until row redisplayed by a scroll"
+  - correction of bug "insert/update in attributed portion of text looses the cursor"
+  - add "oblique" attribute
+  - add "background color" attribute
+Version V00.77
+  - add "shadow" attribute
+  - add "color" attribute
+Version V00.76
+  - correction of bug "apply bold to a word and then select a word a few words later
+    in the same row and apply bold, all words in between are changed to bold"
+  - you can now insert or delete anywhere in a text with attributes without losing
+    these attributes, but any new character does not get any automatic attribute,
+    even if you insert between two characters of same attribute.
+    nb: annoying effect, any attributes update via insert/delete loses cursor
+Version V00.75
+  - support additional key above keyboard when editing text of row
+    - key is functional if portion of text if selected
+    - key shows a view to set bold/italic/underline/strikethrough/outline attributes
+      to selected portion of text
+      - if selected text had already, for each of its characters, same attributes,
+        switches are initialized to take them in account
+      - multiple attributes are allowed (ex: bold and italic and underlined)
+      - changing attributes redisplay the selected text in the window
+      - an ok button ends this window and stores the attributes
+      nb: you have to know that if you insert or delete a portion of text that 
+      === overlaps an attributed text, this one is reset as normal, because
+          it seems actually a little bit too complex for me, but I added it
+          to my todo list.
+    - pdf will also take in account the text attributes
+Version V00.74
+  - for the option "send text to app", now a choice .txt/.pdf/cancel is provided
+    - if .pdf is selected, an outline.pdf file is created supporting
+      outline/text color and included images
+      nb: paper page is supposed to be an A4 with
+          15mm for left margin and 5mm for right margin on the 210mm paper width
+				  5mm for top and bottom margins on the 297mm paper height
+Version V00.73
+  - auto-save is now operational
+    nb: see in settings, just after title 'auto-save', the duration of last save
+  - row without ouline does not allow to tap on outline to get popup menu,
+    in this case, tap on checkbox of the row will ask you if you want to 
+    - tap the checkbox
+    - open the popup menu
+    nb: this choice only exists for row of 1st level without outline
+Version V00.72
+  - for promote/demote keys above keyboard, cursor will be set at end of text
+    instead at start
+  - for the option "send to other app", use now ObjectiveC UIActivityViewController
+    instead of console.open_in to support more apps like mail, messages etc..
+  - support formats with 1st level without outline (title)
+    - switch at bottom of available outline formats
+    nb: no actual way to get popup menu
+        workaround: 1st level has outline ON/popup action/1st level has outline OFF
+Version V00.71
+  - new files naming
+    - files names will be xxxxx_yyyymmdd_hhmmss.outline (save time)
+    - keep only one version
+    - file will also contain text it-self
+    - no more use text file as input, avoid incoherence between text and content
+    - new option in Files menu to send text to other app
+  - correction of bug "checking if text reaches right side did not take in account
+    the eventual image at left or right"
+  - remove recover option from files menu
+  - correction of some english errors (@ccc GitHub issue)
+Version V00.70
+  - change layout of window for image sizing and positioning to support
+    small iPhone width
+  - correction of bug "error if image size segment selected"
+Version V00.69
+  - new "Recover if incoherent text and content" option on Files submenu
+    - if begin of text taken as outline or end of outline taken as text,
+      generate new content
+      nb: user needs still to save
+  - new window for image sizing and positioning
+    - displayed immediately at new image
+      - with default medium left
+    - displayed when selecting popup menu option image
+    - window contains 
+      - the image as a big view
+      - segments small/medium/large for size, setting height = 2, 4, 6
+      - TextField for entering eventually another height in number of rows
+        - if typed value is one of standard sizes, its segment is selected
+        - selecting a standard size sets the textfield value
+      - segments left/right/top/bottom for positions
+      - ok button to store settings
+      - delete button to delete the image
+Version V00.68
+  - add Cancel button when asking to choose between "local Pythonista", "Files app"
+    and eventually "Photos"
+  - add "delete" option in tapped image window
+Version V00.67
+  - support UIDocumentPickerViewController for 1st argument as extension
+  - if open file with extension given by 1st argument on local Pythonista,
+    only files with asked extension will be shown
+  - replace console.alert by hud_alert (3 seconds) where no question is asked
+  - review each hud_alert message which has to be short, doc dixit
+  - content file name set as text file name followed by ".content"
+    (no more replace eventual extension of text file by content)
+  - during save operation, previous text and content files are saved as .old
+    but these .old are removed as soon as save is done
+Version V00.66
+  - correction of bug "insert new row after all children of row where CR is typed"
+Version V00.65
+  - correction of bug "for picking in FileApp, script hangs" 
+    replace console.alert by console.hud_alert"
+  - correction of bug "creating a new outline and touch the 1.0 to begin entering
+    text, the line disappears for a moment and then comes back when we put cursor"
+  - support photos from camera roll when pick an image
+    - added "photos" option with "local Pythonsista" and "Files app"
+    - display standard photos picker
+    - copy the photo as a file (on current path, name=photo name)
+    - uses the copied photo into the outline
+  - support sort of view dates
+  	- button at right of dates column title
+  	- support ascending, descending, no sort
+  		nb: no date known, supported as "now" when sorting
+  	- actions on row would need to be tested:
+  		- edit text
+  		- CR
+  		- tab
+  		- backtab
+  		- delete with children
+  		- move would be avoided (hazardeous )
+  - if due date set while due dates view is shown, update view immediately
+  - if update  while update dates view is shown, update view immediately
+Version V00.64
+  - correction of bug "error on self.show_mode if new before an open"
+  - correction of bug "title of date column can be cut by first row"
+  - now, even if date field at front, outline stays editable
+Version V00.63
+  - a lot of crashes "Segmentation fault" occur after scroll which set the cursor,
+    thus showed the keyboard
+    Try to protect against these crashes by no more showing cursor/keyboard 
+    except when a new row is added.
+    waiting for feedback
+Version V00.62
+  - store for each created, updated, checked/unchecked row the relative date-time
+    in its .content
+    nb: create and update dates automatically set
+        complete date set when outline is checked
+        due date would be introduced by user via popup menu new option
+        nb: then an ui.DatePicker allows to pick a date-time
+  - new eye menu option: ask view of selected date
+  - new setting: dates format
+Version V00.61
+  - correction of bug "save did not work"
+Version V00.60
+  - correction of bug "hidden child shows its image"
+  - correction of bug "in popup menu, actions in two lines were not executed"
+  - correction of bug "tap image in horizontal popup menu gives error 'view in use'"
+  - correction of bug "intercept error of image from unaccessible file"
+    and draw an 'open error' image
+  - support UIDocumentPickerViewController for set current path
+  - support UIDocumentPickerViewController for log file to play
+  - support UIDocumentPickerViewController for open
+  - support UIDocumentPickerViewController for image
+  - new parameter "current path" used for accessing files
+  - in settings dialog, display current path as header of settings
+  - new "set current path" option in files menu
+    - not used for images, so you can pick an image anywhere
+    - used for play log, on local or Files app folder
+    - used for open file, on local or Files app folder
+  - new options in eye menu
+    - hide checked
+    - show checked only
+    nb: if one of these modes is active and we change the status checked/unchecked
+        of one displayed line, this line will be automatically hidden
+Version V00.59
+  - support images in rows
+    - use UIDocumentPickerViewController allowing to pick even not yet downloaded 
+      iCloud files
+Version V00.58
+  - correction of bug "some typing, like left delete, give error 'IndexError: string
+    index out of range' when saving for undo"
+  - remove option 'show all' of eye button, same process as 'expand all'
+Version V00.57
+  - correction of bug "selecting option in eye submenu gives error
+    'TypeError: string indices must be integers'"
+Version V00.56
+  - eye button now shows a submenu with
+    - show all to unhide all rows
+    - collapse all to hide all rows with level > 1 (children)
+    - expand all to unhide all rows with level > 1 (children)
+    nb: expand all and show all do exactly the same process
+  - to be tested modification for the problem of enter on row just above keyboard, 
+    which implies a new row but hidden by keyboard
+Version V00.55
+  - the "triangle" symbol to the left of the outline item should
+    - point down when the children are visible 
+    - point to the right when they are hidden
+    - be a filled circle if no children
+Version V00.54
+  - correction of bug "crash at start with error
+    AttributeError: 'Outliner' object has no attribute 'cursor'"
+Version V00.53
+  - when editing a row that would be hidden by the appearing keyboard, 
+    automatically scrolls so the row is above the keyboard
+Version V00.52
+  - protection against crash when open a file. 
+    Offer only "on my iDevice" and "iCloud Drive" if their path exists,
+    that will say "open once as external folder"
+Version V00.51
+  - protection against crash on iPhone when open a file. 
+    On iPhone, iCloud Drive folder is not seen as a folder by os.path.isdir().
+    => Support only Pythonista local and iCloud files
+Version V00.50
+  - support automatic soft line-feed when typing reaches right side with recomputing
+    of height of TextView in TableView row
+Version V00.49
+  - correction of bug "scrolling not allowed when keyboard hides row to be edited"
+    by setting tableview content inset bottom = keyboard height
+Version V00.48
+  - modified File_Picker to support in the browser 
+      - Pythonista local
+      - Pythonista iCloud
+      - On my iDevice
+      - iCloud Drive
+    - no more setting "folder choice"
+    - no more import Folder_Picker
+Version V00.47
+  - add a "dismiss keyboard" key to iPhone kyboard to see all rows for editing
+  - follow @ccc advice about "for i, item in enumerate(items):"
+  - correction of bug "info button of format types did not react"
+Version V00.46
+  - support device rotation while running
+  - support split view even while running (buttons locations recomputed)
+  - height of TableView rows recomputed in function of number of soft linefeeds
+    generated by long texts 
+Version V00.45
+  - correction of bug "on iPhone, script hangs when trying to open a file"
+Version V00.44
+  - correction of bug "if outline.py on iCloud, local is not accessible"
+  - correction of bug "on iPhone, no way to close Versions window"
+  - correction of bug "on iPhone, portrait, filter dialog segments not full 
+    visible, font size recomputed"
+  - correction of bug "on iPhone, portrait, settings dialog segments not full 
+    visible, font size recomputed"
+Version V00.43
+  - popup menu
+    - options about checkbox only shown if checkboxes setting is yes
+    - new option "hidden" if checkbox has to be hidden for a specific row
+      nb: checkbox can be reshown if option checked or unchecked is tapped
+Version V00.42
+  - open a xxx.content file is not allowed
+  - name a new file as xxx.content is not allowed
+Version V00.41
+  - correction of bug "crash when closing settings option"
+  - support of extension passed as 1st argument
+    nb: - example: .txt will show all files grayed except .txt ones
+Version V00.40
+  - support of file passed as 1st argument 
+    nb: - only file in script folder is actually supported
+        - script checks file and its.content both exit
+        - ex url: pythonista3://MyFolder/outline?action=run&argv=a.txt
+Version V00.39
+  - correction of bug "keyboard hides data entry of text in rows"
+Version V00.38
+  - correction of bug "drop into the moving lines was allowed"
+Version V00.37
+  - correction of bug "filter was reset to zero"
+  - support on iPhone kind of popover presentation via half transparent shield for:
+  	- files menu tableview
+  	- format types menu tableview
+  	- search textfield
+  	- font size textfield
+  	- popup menu
+  - not needed for dialogs like settings and filter and for big views like versions
+  - force vertical popup menu on iPhone
+Version V00.36
+  - support iPhone by using ui.Buttons instead of ui.ButtonItems for menu buttons
+Version V00.35
+  - new options in popup menu to check or uncheck the tapped row and its children
+Version V00.34
+  - new functionality: filter
+    - new button in main menu
+    - allows to filter lines to show (other are hidden)
+       < level
+       = level
+       > level
+Version V00.33
+  - correction of bug "local variable 'cell' reference before assign"
+  - correction of bug "move before first row does not work"
+  - correction of bug "move after last row does not work"
+  - correction of bug "cursor leaves search field and goes to a row at each char"
+  - long options of horizontal popup menu in two lines 
+    nb: popup black menu has same height as before, the minimum allowed (40 pixels)
+Version V00.32
+  - support "autocapitalization type (see ui.TextView doc)"
+    - new general setting
+    - use this setting when entering text (none, words, sentence, all)
+Version V00.31
+  - correction of bug "undo did not work"
+  - correction of bug "move before first line did not work"
+Version V00.30
+  - use a TableView instead of a TextView (full review)
+  - support delete row and its children option in popup menu
+  - support enter between words in text, stay in same outline
+  - modif infos stored in .log file easier reading
+  - for new file, do not ask folder and name before first save or at end 
+    - without folder/file, no auto save is possible and title is ?
+  - an outline with multiple lines is saved with a blnk outline from the second
+    line so the text is visible and printable as is.
+  - On my iPad/iPhone now accessible if, and only if, you share ONCE a file 
+    from this Files app folder to this program. 
+    The path will be stored in .prm file.
+  - support "delete in red" 
+    - new general setting
+    - display or not red background for "delete with children" option in popup menu
+  - support "single or double tap for popup menu"
+    - new general "setting"
+    - single or double tap on outline needed for popup menu
+  - support of redo after undo (same button, icon changes automatically)
+Version V00.29
+  - support top folder also for folder_picker when creating a new file
+  - bad scrolling at typing normal characters solved in some cases, 
+    but not all, bug still not identified...
+Version V00.28
+  - support "Files"
+    - new general setting local, iCloud, on my iDevice, iCloud Drive
+      - if not accessible, segment will be disabled
+    - file picker on selected folder
+Version V00.27
+  - correction of bug "auto-save parameter incorrect in .prm file"
+  - temporary workaround to scrolling problem: when typing in a line, automatic 
+    scroll so this line is at top of screen and you don't have this annoying
+    scroll at each typed character. But this does not work each time. Weird
+Version V00.26
+  - support "auto-save"
+    - new general setting no, each character typed, each line by CR, tab, back tab
+      nb: time of last save (in hh:mm:ss.ssss) is shown in settings screen
+    - save in function of setting and typing 
+    - save will now
+      - delete .old files if they exist
+      - rename files into .old 
+      - save files
+Version V00.25
+  - correction of bug "predictive text may generate crash or doubled end characters"
+  - no more error message when you drop a box on its original area, used to cancel
+  - new file will use default font Menlo and default font size 18
+  - support clickable (short press) and underlined weblink
+    on all words (ending with a blank) beginning by http:// or https://
+    nb: be careful, url is case sensitive
+  - new option in Files popup menu: rename
+    - check actual file and its .content exist (not the case if new in progress)
+    - ask new name
+    - check renamed file and its .content do not already exist
+    - rename file and its content
+Version V00.24
+  - default font size will be now 18
+  - no more alert if last open file, stored in .prm, does no exist anymore
+  - font and font_size saved in .content, so when file is open, they are known
+  - backtab on an outline of first level not allowed
+Version V00.23
+  - correction of bug "paste text containing CR did lock the script"
+  - correction of bug "popup menu location incorrect if long text"
+  - outline showed in yellow in horizontal popup menu, to be sure
+    the menu is relative to the tapped outline
+  - new functionality: undo
+    - new button in main menu
+    - shows name of action undoable in red on the button
+    - operational for undoing move (drag/drop)
+    - operational for undoing CR (linefeed)
+    - operational for undoing tab (demote)
+    - operational for undoing back (promote)
+    - disable if typed or deleted characters 
+Version V00.22
+  - correction of bug "if text bigger than one screen, any typing
+    automatically scrolls until end of file".
+    workaround found is to locate text row at edited line
+  - correction of bug "checkbox was not saved correctly in .content"
+  - correction of bug "checkboxes are being reset as soon as new item is typed"
+Version V00.21
+  - correction of BIG (sorry) bug "hide/show icons were not synchronized with lines
+    when scrolling more than one screen"
+  - correction of bug "tap outside search field while it was not empty" does not 
+    reshow all lines""
+  - support move left/right dragged box on its initial line to promote/demote
+  - support "show lines separator" 
+    - new general setting
+    - display or not a line after each (not hidden) text line
+   - support "checkboxes" 
+    - new general setting
+    - display or not a checkbox in front of (not hidden) line
+    - store checkbox per line in the .content file
+Version V00.20
+  - review all renumbering (one more time)
+Version V00.19
+  - correction of bug "log may not be activated after an 'open file'"
+  - correction of bug "move last line shows a too high pink area"
+  - correction of bug "bad renumbering after move"
+  - support new setting "font size of hidden outlines, may be set to 0"
+  - support longpress and double tap popup menu only on outline
+  - support standard gesture select/copy/paste only on text it-self
+  - differentiate if we would drop under the outline or under the text
+    by start the red line at left of outline or left of the text
+  - support drop under outline and under text
+Version V00.18
+  - bugs
+    - correction of bug "bad renumbering after drop"
+    - correction of bug "crash 'tuple index out of range' if change outline type"
+    - correction of bug "crash if drop after a line without outline"
+Version V00.17
+  - support "hide/show children via buttons at left of outline"
+Version V00.16
+  - support "log" 
+    - new general setting
+    - log each typed key
+    - play log typed keys
+    - log each move
+    - play log move
+Version V00.15
+  - bugs
+    - correction of bug "long press on last lines shows full text as pink area"
+Version V00.14
+  - bugs
+    - correction of bug "backtab on a line did not also backtab its children"
+    - correction of bug "drop after last line didn't do anything"
+    - full review for renumbering for 
+      - "backtab" 
+Version V00.13
+  - bugs
+    - correction of bug "new file was saved as first use, even if not asked"
+    - correction of bug "enter in font size did not close the textfield"
+    - correction of bug "error 'list index out of range' at end of file"
+    - correction of bug "error 'list index out of range' in renumbering"
+      if last line has a CR"
+    - full review for renumbering for 
+      - tab" 
+      - "lf " 
+      - "backtab" still in progress
+      - "dropped lines" 
+      - "removed lines of dropped original" 
+  - text in moving box will have same font and font size as TextView text
+  - support "show original area" 
+    - new general setting
+    - display or no a coloured rectangle on the original dragged area
+Version V00.12
+  - bugs
+    - full review of tab process and checks
+    - full review of backtab process and checks
+    - correction of bug "typing a tab or backtab before an outline was now allowed"
+Version V00.11
+  - bugs
+    - correction of bug "characters insertion before an outline was allowed"
+    - correction of bug "CR before an outline was allowed"
+    - correction of bug "CR before a line without outline crashed"
+    - correction of bug "CR at begin of file before an outline was incorrect" 
+  - support CR in the middle of a line, with renumbering of following lines
+Version V00.10
+  - bugs
+    - correction of bug "tab crashes on replaceObjectsInRange out of bounds"
+    - correction of bug "incorrect renumbering lines after CR"
+Version V00.09
+  - bugs
+    - correction of bug of crash when "drop before first line"
+      nb: new renumbering bug has appeared, not yet solved
+    - correction of bug of crash with "'Outliner' object has no attribute 'target'"
+    - correction of bug of hidden but identic (invisible) outlines do not have
+      the font size of hidden
+    - correction of bug of tapping outside textfield (font size, searched text) 
+      closes the entire app
+    - correction of bug of same outlines (gray) do not have same font_size 
+      as normal ones
+  - moving box
+    - will now contain coloured outlines
+    - the moving box was displayed above the finger position to allow to always
+      see where it would be inserted, but, at the top of the text, the box was
+      outside the screen, thus invisible. Now, this box will be drawn at right
+      of the finger.
+  - search in lines
+    - new main button for searching
+    - display an ui.TextField to enter the searched text
+    - display only lines containing the search text (case,accents non sensitive)
+      nb: displayed lines vary in real time
+    - press enter to close the TextField and come back to full display
+  - review .content file for future improvements like outline hidden, style etc...
+Version V00.08
+  - no more blue dot at top/left of moving box
+  - new settings button in main menu
+  - support "popup menu orientation" 
+    - new general setting
+    - support both vertical and horizontal orientations of popup menu
+  - bugs
+    - correction of bug of two successive tabs on same line
+  - support of drop
+    - check no drop of a box of text into it-self
+    - support of drop for move operation only 
+      nb: draft process, several renumbering bugs subsist, be patient
+  - support of "force a new line with same outline"
+    - new general setting
+    - new option in popup menu
+      - with special icon if horizontal popup menu
+    - generates an outline, same as previous line
+    - no renumbering of next lines will occur
+    nb: long lines automatically (by ui.TextView) break and should generate a same outline on next line, but this is not yet supported. 
+    Force same outline functionality may be a workaround
+  - support "same outline invisibility" 
+    - new general setting
+    - support both invisible or light gray (tests) same outline
+  - begin of future (eventual) development for details of outline format types
+    - better parametrization of format types
+    - accessory info button in format types popup menu gives more details
+Version V00.07
+  - popup menu was shown by tapping a line but this does no more allow to set
+    the cursor, thus replace tap by a double tap
+  - tap popup menu y-centered on the tapped line
+  - popup menu now horizontal in more standard aspect
+  - locally built icon for font size button
+  - locally built icon for font button
+  - correction of bug of cursor always set at end of text
+  - support outline bullets format
+  - height of outline format types menu computed in function of types number
+  - font size introduction via integer keyboard in popover TextField
+Version V00.06
+  - moving box for dragging limited to text it contains
+  - during dragging, a red line indicates where the moving text would be inserted
+  - font button for font selection
+  - font size button for font size selection
+  - promote/demote by gestures:
+    - either by a long press on one line and moving the dragging box left or right 
+      on the same line
+    - either by a left or right swipe on one line 
+Version V00.05
+  - remove the "move" option from the popup menu when tapping an outline
+  - to start a drag operation, long press anywhere on a line
+    - hold your finger on the screen
+    - pressed line and its children lines are set in a little mobile label
+    - this label is above your finger so it stays visible why moving your finger
+    - move the mobile label so its top/left blue point falls on a line
+    - drop process is still to be developed, wait and see
+      nb: actual drop process drops the entire text (outlines included) 
+          at specified location
+Version V00.04
+  - correction of bug of automatic renumbering after line feed
+  - correction of bug of automatic renumbering after tab
+  - correction of bug of automatic renumbering after back tab
+  - if outline is exactly the same as previous line, display it in gray
+    nb: - actually, this should not be authorized but automatic renumbering
+          sometimes generates such invalid cases
+        - if this functionality is allowed, the outline would become invisible
+  - hide/show children supported (also saved for next run)
+    nb: actually, for testing, not really hidden but small characters to check
+        which lines would be hidden
+Version V00.03
+  - at program end, outline.prm written with path and name of last edited file
+  - automatic open last edited file at program start
+  - automatic generation of first outline when new file
+Version V00.02
+  - File Picker
+  - Folder Picker
+  - file open
+  - file save
+  - file new
+  - save levels and outline type in xxx.content
+  - when tab, check maximum level reached
+  - when change outline format, check maximum level reached
+Version V00.01
+  - add row above keyboard with up/down outline level' keys
+  - differentiate up/down level keys of tab and left delete
+  - add Files button and its submenu, without any process
+  - checks: delete/cut selected mix of outline not allowed (message)
+  - allows "up level" key anywhere in the line
+Version V00.00
+  - checks: editing outline is not allowed (message)
+  - checks: delete/cut selected mix of outline and normal characters 
+            not allowed (message)
+  - checks: delete line feed followed by a line with an outline
+            not allowed (message)
+  - support normal characters
+  - support tab at begin of line with automatic outline
+  - support tab in text, simulate line feed keeping same (invisible) outline
+  - support line feed with automatic outline, only at end of text
+  - support delete/cut of normal characters, even lf (see checks)
+  - support coloured outline
+  - support outline color picker, even during editing
+  - support outline format change, even during editing
+  - support outline decimal format (not yet alignment and big numbers)
+  - support outline alphanumeric format (not yet alignment and big numbers)
+  - support outline traditional format (not yet alignment and big numbers)   
+  - support versions button (ok, you have tested it, nice isn't it? 😀)
+  - support button on each outline for future actions (move?...)
