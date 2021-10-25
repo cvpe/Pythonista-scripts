@@ -1,6 +1,6 @@
 Version V01.20
   - correction of bug "before the keyboard has appeared a first time,
-    the first edited outline is automatically scrolled up erroneously""
+    the first edited outline is automatically scrolled up erroneously"
 Version V01.19
   - correction of bug "only on iPhone in portrait mode, editing the last line
     of a file bigger than a screen, the keyboard appears but hides this line"
