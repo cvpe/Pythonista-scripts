@@ -1,6 +1,6 @@
 Version V01.21
   - correction of bug "when typing a long line automatically splits the line,
-    the keyboard sometimes disappears and cursor is no more visible""=
+    the keyboard sometimes disappears and cursor is no more visible"
   Version V01.20
   - correction of bug "before the keyboard has appeared a first time,
     the first edited outline is automatically scrolled up erroneously"
