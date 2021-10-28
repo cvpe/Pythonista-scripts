@@ -28,7 +28,7 @@ Of course, you can very easily remove this code, but I just wanted to show how w
   - use webview to navigate until a Github **RAW** file to download in Pythonista local files
     - of course, an url can be pasted in the url TextField
   - a **download** button will be enabled and has to be tapped
-  - if File_Picker module present, asks user to select directory where to copy the downloaded Github file
+  - if Folder_Picker module present, asks user to select directory where to copy the downloaded Github file
     - else, file will be downloaded in the Documents root directory
   - 08MAR2019: bug "url pasted or entered in TextField gave a crash" corrected
   - 25MAR2019: support also of gist 
