@@ -946,7 +946,7 @@ class MyView(ui.View):
 		t = self.v_kanji['kanjis'].data_source.items[self.v_kanji['kanjis'].current]
 		#speech.say(t,'jp-JP')
 		utterance = AVSpeechUtterance.speechUtteranceWithString_(t)
-		#the value that sounds good apparantly depends on ios version
+		#the value that sounds good apparently depends on ios version
 		utterance.rate = 0.5
 		if self.voice_def == None:
 			# not yet defined
