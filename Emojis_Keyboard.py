@@ -87,7 +87,7 @@ class MyView(ui.View):
 	def __init__(self, *args, **kwargs):
 		super().__init__(self, *args, **kwargs)
 		self.background_color = 'lightgray'
-		self.border_width = 1
+		#self.border_width = 1
 		
 		# bounds not yet known in init, let some delay		
 		ui.delay(self.dimensions,0.1)
