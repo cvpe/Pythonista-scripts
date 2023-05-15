@@ -112,7 +112,7 @@ def getAssetsWithLocationInDateInterval(startDate, endDate):
 	print("Number of assets with location:")
 	print(len(location_assets))
 	timed_assets = [asset for asset in location_assets if ( asset.creation_date.date() >= startDate and asset.creation_date.date() <= endDate) ]
-	timed_assets = location_assets
+	#timed_assets = location_assets
 	print("Number of assets with location in date interval:")
 	print(len(timed_assets))
 	return timed_assets
