@@ -1,7 +1,6 @@
 Version V01.37
   - Pythonista V3.4 version errors
     - from   collections import Sequence => from collections.abc import Sequence
-    - SUIViewController class replaced by SUIViewController_PY3 in objc_util
 Version V01.36
   - in addition to save outline in calendar event on 01 January 2042,
     copy outline¥content in clipboard and
